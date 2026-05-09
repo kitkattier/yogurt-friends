@@ -42,4 +42,4 @@ set guessed = true
 
 Want to ask another question?
 - Yes => ask_question
-- No => END
+- No => guess
