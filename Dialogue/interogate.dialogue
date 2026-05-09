@@ -1,6 +1,7 @@
 ~ start
+set movement_disabled = true
 if guessed
-	Them: Piss off => END
+	Them: Piss off => handle_end
 else
 	Them: Hi!
 	# Can we make the below voicelines attributes of the people :) 
@@ -16,12 +17,12 @@ set guessed = true
 - Friend
 	set correct_guess = is_furry
 	if correct_guess
-		Them: Mmmmm so yummy >.< => END
+		Them: Mmmmm so yummy >.< => handle_end
 	else
-		Them: Ew what do you think I am => END
+		Them: Ew what do you think I am => handle_end
 - Foe
 	set correct_guess = not is_furry
-	Them: No problem. Have a great day! => END
+	Them: No problem. Have a great day! => handle_end
 - Ask more questions? => ask_question
 	
 
@@ -43,3 +44,7 @@ set guessed = true
 Want to ask another question?
 - Yes => ask_question
 - No => guess
+
+~ handle_end
+set movement_disabled = false
+=> END

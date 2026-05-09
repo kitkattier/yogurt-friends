@@ -5,11 +5,8 @@ extends CharacterBody2D
 @export var min_wait: float = 2.0
 @export var max_wait: float = 10.0
 @export var answers: Dictionary
-
 @export var person_name: String = "Name"
-
 @export var face_image: String = "res://person/placeholder_head.png"
-
 @export var is_furry: bool = true  # set this per NPC, true = actually a furry
 @export var questions_answered: Array[bool] = [false, false, false]
 @export var guessed: bool = false
@@ -19,6 +16,7 @@ extends CharacterBody2D
 @onready var wait_timer: Timer = $WaitTimer
 
 var home_position: Vector2
+var movement_disabled: bool = false
 
 func _ready() -> void:
 	$Tail.play("tail1")
@@ -45,6 +43,9 @@ func _pick_new_target() -> void:
 	$Hoverboard.show()
 
 func _physics_process(_delta: float) -> void:
+	if movement_disabled:
+		return
+
 	if agent.is_navigation_finished():
 		if wait_timer.is_stopped() and velocity != Vector2.ZERO:
 			_start_waiting()
