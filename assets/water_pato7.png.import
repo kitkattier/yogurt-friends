@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cddsk42thkjaf"
-path="res://.godot/imported/GALVwellen5%(10).png-0424de7e002b66f1b485a923a300384a.ctex"
+uid="uid://bo3vq238ydo6s"
+path="res://.godot/imported/water_pato7.png-569328c3cee541dd7a3a449d9717b96e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/GALVwellen5%(10).png"
-dest_files=["res://.godot/imported/GALVwellen5%(10).png-0424de7e002b66f1b485a923a300384a.ctex"]
+source_file="res://assets/water_pato7.png"
+dest_files=["res://.godot/imported/water_pato7.png-569328c3cee541dd7a3a449d9717b96e.ctex"]
 
 [params]
 

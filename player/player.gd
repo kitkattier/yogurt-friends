@@ -42,9 +42,9 @@ func _physics_process(_delta: float) -> void:
 		$AnimatedSprite2D.play("idle")
 	
 	move_and_slide()
-	clamp_to_viewport()
+	clamp_to_world()
 
-func clamp_to_viewport() -> void:
-	var viewport_size := get_viewport_rect().size
-	global_position.x = clamp(global_position.x, half_size.x, viewport_size.x - half_size.x)
-	global_position.y = clamp(global_position.y, half_size.y, viewport_size.y - half_size.y)
+func clamp_to_world() -> void:
+	var world_size = get_node("/root/Main").world_size
+	global_position.x = clamp(global_position.x, half_size.x, world_size.x - half_size.x)
+	global_position.y = clamp(global_position.y, half_size.y, world_size.y - half_size.y)

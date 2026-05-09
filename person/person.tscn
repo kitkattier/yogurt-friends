@@ -148,6 +148,7 @@ animations = [{
 radius = 340.1779
 
 [node name="Person" type="CharacterBody2D" unique_id=193851507]
+z_index = 2
 script = ExtResource("1_tp2ef")
 answers = {
 "food": "some food",
