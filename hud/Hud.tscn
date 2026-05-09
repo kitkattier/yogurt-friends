@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c7us4ngtasyob"]
 
 [ext_resource type="Script" uid="uid://c0qg3cb4jg141" path="res://hud/hud.gd" id="1_ki55g"]
+[ext_resource type="Texture2D" uid="uid://cdbromc0nyqe0" path="res://hud/yogurt.png" id="2_rvwe7"]
 
 [node name="Hud" type="CanvasLayer" unique_id=1965811172]
 script = ExtResource("1_ki55g")
@@ -23,6 +24,13 @@ size_flags_vertical = 0
 [node name="TimeLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=337744435]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
 
 [node name="MoneyLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1456861658]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=326194824]
+layout_mode = 2
+texture = ExtResource("2_rvwe7")
+expand_mode = 3

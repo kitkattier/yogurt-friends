@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://r4snfemy0s35"]
 
+[ext_resource type="Script" uid="uid://oliw4cr0yryo" path="res://truck/truck.gd" id="1_5dd55"]
 [ext_resource type="Texture2D" uid="uid://bstlq227rbu8c" path="res://truck/truck.png" id="1_ywx3u"]
+[ext_resource type="PackedScene" uid="uid://bhaivfopynpuh" path="res://actionable.tscn" id="2_k54dj"]
+[ext_resource type="Resource" uid="uid://ca8uyn1dw0wc4" path="res://Dialogue/truck.dialogue" id="3_hewa3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k54dj"]
 size = Vector2(192, 67)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hewa3"]
+size = Vector2(216, 106)
+
 [node name="Truck" type="StaticBody2D" unique_id=276943845]
+script = ExtResource("1_5dd55")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1888184993]
 scale = Vector2(0.1, 0.1)
@@ -14,3 +21,10 @@ texture = ExtResource("1_ywx3u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1255135355]
 position = Vector2(-1, -14.5)
 shape = SubResource("RectangleShape2D_k54dj")
+
+[node name="Actionable" parent="." unique_id=1893067618 instance=ExtResource("2_k54dj")]
+dialogue_resource = ExtResource("3_hewa3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable" unique_id=302157311]
+position = Vector2(-2, -5)
+shape = SubResource("RectangleShape2D_hewa3")

@@ -1,7 +1,9 @@
 extends Node
 
-@export var person_scene: PackedScene
-var money
+@export var person_scene:  PackedScene
+
+var money: int = 0
+var _yogurt: int = 0
 var world_size: Vector2
 
 @onready var timer: Timer = $Timer
@@ -37,6 +39,7 @@ func _ready() -> void:
 		create_person(this_face_image[0], this_face_image[1], accessories_equipped)
 	timer.timeout.connect(_on_time_up)
 	hud.update_money(0)  # initial value
+	hud.update_yogurt(_yogurt)
 	timer.start()
 	
 	$Truck.position = world_size / 2
@@ -177,3 +180,7 @@ func setup_navigation() -> void:
 	nav_poly.make_polygons_from_outlines()
 	nav.navigation_polygon = nav_poly
 	add_child(nav)
+
+func set_yogurt(new_yogurt: int) -> void:
+	_yogurt = new_yogurt
+	hud.update_yogurt(new_yogurt)

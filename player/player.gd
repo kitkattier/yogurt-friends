@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 var half_size: Vector2
-@onready var actionable_finder: Area2D = $ActionableFinder
-
 var interrogation_running: bool = false
+
+@onready var actionable_finder: Area2D = $ActionableFinder
 
 signal interrogation_started
 

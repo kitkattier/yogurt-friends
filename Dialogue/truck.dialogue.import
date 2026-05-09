@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ca8uyn1dw0wc4"
+path="res://.godot/imported/truck.dialogue-c23d3430fafed084dc4fdec7d48122ee.tres"
+
+[deps]
+
+source_file="res://Dialogue/truck.dialogue"
+dest_files=["res://.godot/imported/truck.dialogue-c23d3430fafed084dc4fdec7d48122ee.tres"]
+
+[params]
+
+defaults=true
