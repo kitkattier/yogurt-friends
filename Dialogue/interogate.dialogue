@@ -1,38 +1,44 @@
-~ intro_to_friend
-Them: Hi!
-% Them: This is random voiceline 1 for FRIEND
-% Them: This is random voiceline 2 for FRIEND
-% Them: this is random voiceline 3 for FRIEND => question_and_guess
+~ start
+if guessed
+	Them: Piss off => END
+else
+	Them: Hi!
+	# Can we make the below voicelines attributes of the people :) 
+	% Them: This is random voiceline 1 for either 
+	% Them: This is random voiceline 2 for either 
+	% Them: this is random voiceline 3 for either 
+	=> ask_question
 
-~ question_and_guess
-=>< ask_question
+~ guess
 What do you think they are?
+set guessed = true
 # Have this as an arbitrary thing. See if the user is a friend, choose the voiceline.
 - Friend
-	set Person.is_known = true
-	Them: Thanks so yummy >.< => END
+	set correct_guess = is_furry
+	if correct_guess
+		Them: Mmmmm so yummy >.< => END
+	else
+		Them: Ew what do you think I am => END
 - Foe
+	set correct_guess = not is_furry
 	Them: No problem. Have a great day! => END
-- Ask more questions[if <SOME STATE OF IF THEY'VE ASKED THIS PERSON TO MANY QUESTIONS] => question_and_guess
+- Ask more questions? => ask_question
 	
-~ First_talk_Foe
-Them: Hi!
-% Them: This is random voiceline 1 for FOE
-% Them: This is random voiceline 2 for FOE
-% Them: this is random voiceline 3 for FOE =>  question_and_guess
-
-
-
 
 ~ ask_question
-- Question 1[if not <>]
+- Favourite food? [if not questions_answered[0]]
+	Them: {{answers.food}}
+	set questions_answered[0] = true
 	# THESE ARE COMMENTED OUT BC I CAN'T ACCESS THEM ATM
 	# set [variable that is related to the player on if they've been asked about this question] = True
 	# Them: My answer is {{I need to have their variable in here}}
-- Question 2[if not <>]
-- Question 3[if not <>]
-- Question 4[if not <>]
-- Guess => END
+- Any pets? [if not questions_answered[1]]
+	Them: {{answers.pets}}
+	set questions_answered[1] = true
+- What's your job? [if not questions_answered[2]]
+	Them: {{answers.job}}
+	set questions_answered[2] = true
+- Guess => guess
 
 Want to ask another question?
 - Yes => ask_question

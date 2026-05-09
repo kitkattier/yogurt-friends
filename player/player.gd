@@ -2,11 +2,23 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 var half_size: Vector2
+@onready var actionable_finder: Area2D = $ActionableFinder
+
+signal interrogation_started
+signal interrogation_ended
 
 func _ready() -> void:
 	var shape := $CollisionShape2D.shape as RectangleShape2D
 	half_size = shape.size / 2
 
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			interrogation_started.emit()
+			actionables[0].action()
+		return
+		
 func _physics_process(_delta: float) -> void:
 	var direction := Vector2(
 		Input.get_axis("move_left", "move_right"),

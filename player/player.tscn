@@ -94,7 +94,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
 size = Vector2(64, 65)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_65viv"]
+radius = 28.0
+height = 126.0
+
 [node name="Player" type="CharacterBody2D" unique_id=21336461]
+collision_layer = 8
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_rkbax")
 metadata/_edit_group_ = true
@@ -110,3 +116,11 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_oul6g")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1900688512]
+
+[node name="ActionableFinder" type="Area2D" parent="." unique_id=1147086559]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionableFinder" unique_id=300837173]
+position = Vector2(0, -40)
+shape = SubResource("CapsuleShape2D_65viv")

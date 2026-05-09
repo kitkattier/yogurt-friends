@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cnlfno4lehd0t" path="res://person/collar1.png" id="4_7tgfk"]
 [ext_resource type="Texture2D" uid="uid://cutpvdn0xpcb7" path="res://person/angryfilter.png" id="12_rn6g6"]
 [ext_resource type="Texture2D" uid="uid://bep826l4bsghp" path="res://person/shoes1.png" id="12_w1jbn"]
+[ext_resource type="PackedScene" uid="uid://bhaivfopynpuh" path="res://actionable.tscn" id="13_amkgb"]
+[ext_resource type="Resource" uid="uid://bh1574be1wc0" path="res://Dialogue/interogate.dialogue" id="14_amkgb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4rg1v"]
 animations = [{
@@ -109,8 +111,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dfvs4"]
+radius = 340.1779
+
 [node name="Person" type="CharacterBody2D" unique_id=193851507]
 script = ExtResource("1_tp2ef")
+answers = {
+"food": "some food",
+"job": "some job",
+"pets": "some pets"
+}
 metadata/_edit_group_ = true
 
 [node name="Hoverboard" type="AnimatedSprite2D" parent="." unique_id=1121112255]
@@ -163,3 +173,11 @@ visible = false
 modulate = Color(1, 1, 1, 0.5019608)
 position = Vector2(0, -350)
 sprite_frames = SubResource("SpriteFrames_amkgb")
+
+[node name="Actionable" parent="." unique_id=1893067618 instance=ExtResource("13_amkgb")]
+collision_layer = 8
+collision_mask = 0
+dialogue_resource = ExtResource("14_amkgb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable" unique_id=231097255]
+shape = SubResource("CircleShape2D_dfvs4")
