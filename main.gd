@@ -17,9 +17,12 @@ func _process(delta: float) -> void:
 func create_person(x: float, y: float) -> void:
 	# Create a new instance of the Person scene.
 	var person = person_scene.instantiate()
+	
+	person.scale = Vector2(0.2, 0.2)
 
 	# Set the person's position.
 	person.position = Vector2(x, y)
+	
 
 	# Spawn the person by adding it to the Main scene.
 	add_child(person)
