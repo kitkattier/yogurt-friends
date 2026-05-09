@@ -14,7 +14,8 @@ var home_position: Vector2
 
 func _ready() -> void:
 	$Tail.play("tail1")
-	$Hoverboard.play("still")
+	$Hoverboard.play("moving")
+	$Hoverboard.hide()
 	home_position = global_position
 	wait_timer.timeout.connect(_pick_new_target)
 	agent.velocity_computed.connect(_on_velocity_computed)
@@ -23,6 +24,7 @@ func _ready() -> void:
 
 func _start_waiting() -> void:
 	velocity = Vector2.ZERO
+	$Hoverboard.hide()
 	wait_timer.start(randf_range(min_wait, max_wait))
 
 func _pick_new_target() -> void:
@@ -31,6 +33,7 @@ func _pick_new_target() -> void:
 		randf_range(-wander_radius, wander_radius)
 	)
 	agent.target_position = home_position + random_offset
+	$Hoverboard.show()
 
 func _physics_process(_delta: float) -> void:
 	if agent.is_navigation_finished():

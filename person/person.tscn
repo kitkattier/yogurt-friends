@@ -104,7 +104,7 @@ metadata/_edit_group_ = true
 [node name="Hoverboard" type="AnimatedSprite2D" parent="." unique_id=1121112255]
 position = Vector2(0, -350)
 sprite_frames = SubResource("SpriteFrames_4rg1v")
-animation = &"still"
+animation = &"moving"
 
 [node name="Tail" type="AnimatedSprite2D" parent="." unique_id=231345322]
 position = Vector2(0, -350)
