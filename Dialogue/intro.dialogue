@@ -1,19 +1,19 @@
 ~ start
 YOU: Yo gurt!
-Gurt: Yo!
-Gurt: Can you help me, I need to get this yogurt out to my customers but i can't be seen on the streets.
+Gurt: [img]res://gurt.png[/img] Yo!
+[img]res://gurt.png[/img] Gurt:  Can you help me, I need to get this yogurt out to my customers but i can't be seen on the streets.
 - Yes
-	Gurt: Peak. This is why you a real one
-	Gurt: Have you played this game before?
+	Gurt: [img]res://gurt.png[/img] Peak. This is why you a real one
+	Gurt: [img]res://gurt.png[/img] Have you played this game before?
 	- Yes
-		Gurt: Well you don't need me then. Come by the van to grab more yo[wait=0.5]gurt.
+		Gurt: [img]res://gurt.png[/img] Well you don't need me then. Come by the van to grab more yo[wait=0.5]gurt.
 	- No, tell me the controls:
-		Gurt: No problem. Movement is done with WASD or the arrow keys.
-		Gurt: To interact with a person, press SPACE or E.
-		Gurt: Your goal is to find [wave]furr[wait=0.5]-iends[/wave] and sell them yogurt. 
-		Gurt: You have to work out the signs of if they're friends or foe.
-		Gurt: Make sure to only sell to [wave]furr[wait=0.5]-iends[/wave]!
-		Gurt: Drop by my van to get more yogurt. Best of luck! => END
+		Gurt: [img]res://gurt.png[/img] No problem. Movement is done with WASD or the arrow keys.
+		Gurt: [img]res://gurt.png[/img] To interact with a person, press SPACE or E.
+		Gurt: [img]res://gurt.png[/img] Your goal is to find [wave]furr[wait=0.5]-iends[/wave] and sell them yogurt. 
+		Gurt: [img]res://gurt.png[/img] You have to work out the signs of if they're friends or foe.
+		Gurt: [img]res://gurt.png[/img] Make sure to only sell to [wave]furr[wait=0.5]-iends[/wave]!
+		Gurt: [img]res://gurt.png[/img] Drop by my van to get more yogurt. Best of luck! => END
 - No
-	Gurt: Yes you can, don't lie. => start
+	[img]res://gurt.png[/img] Gurt: Yes you can, don't lie. => start
 => END
