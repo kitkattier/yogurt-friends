@@ -15,12 +15,16 @@ func _ready() -> void:
 	
 func _on_dialogue_ended(resource: DialogueResource):
 	interrogation_running = false
+	var camera = get_viewport().get_camera_2d()
+	camera.set_zoom(Vector2(1, 1))
+	camera.offset = Vector2.ZERO
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
 			interrogation_started.emit()
+			$AnimatedSprite2D.play("idle")
 			interrogation_running = true
 			actionables[0].action()
 		return

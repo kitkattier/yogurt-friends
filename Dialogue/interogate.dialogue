@@ -1,5 +1,5 @@
 ~ start
-set movement_disabled = true
+do start_conversation()
 if guessed
 	{{person_name}}: Piss off => handle_end
 elif get_parent().get_yogurt() == 0

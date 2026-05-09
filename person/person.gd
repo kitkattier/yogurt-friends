@@ -34,6 +34,14 @@ func make_furry() -> void:
 	for part in body_parts:
 		part.hide()
 	$FurryForm.show()
+	
+func start_conversation():
+	movement_disabled = true
+	var target := $"/root/Main/Player"
+	var distance := 200.0
+	global_position = target.global_position + Vector2.LEFT * distance
+	get_viewport().get_camera_2d().offset = Vector2.LEFT * distance / 2
+	$"/root/Main/Player/AnimatedSprite2D".flip_h = true
 
 func _ready() -> void:
 	if accessories_equipped[0]:
@@ -66,6 +74,8 @@ func _start_waiting() -> void:
 	wait_timer.start(randf_range(min_wait, max_wait))
 
 func _pick_new_target() -> void:
+	if movement_disabled:
+		return
 	var random_offset := Vector2(
 		randf_range(-wander_radius, wander_radius),
 		randf_range(-wander_radius, wander_radius)
@@ -87,5 +97,7 @@ func _physics_process(_delta: float) -> void:
 	agent.velocity = desired_velocity
 
 func _on_velocity_computed(safe_velocity: Vector2) -> void:
+	if movement_disabled:
+		return
 	velocity = safe_velocity
 	move_and_slide()
