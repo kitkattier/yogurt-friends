@@ -11,7 +11,7 @@ extends CharacterBody2D
 @export var questions_answered: Array[bool] = [false, false, false]
 @export var guessed: bool = false
 @export var correct_guess: bool = false
-@export var accessories_equipped: Array[bool] = [false, false, false]  # ears, collar, tail respectively
+@export var accessories_equipped: Array = [false, false, false]  # ears, collar, tail respectively
 
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
 @onready var wait_timer: Timer = $WaitTimer

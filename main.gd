@@ -30,11 +30,13 @@ func _ready() -> void:
 
 	var n = 5
 	var face_images = get_face_images()
+	var possible_people = get_possible_people()
 	for i in range(n):
 		var this_face_image = face_images.pick_random()
+		var this_person_details = possible_people.pick_random()
 		# accessories_equipped corresponds to ears, collar, tail, respectively
-		var accessories_equipped: Array[bool] = [true, false, true]
-		var is_furry = true
+		var accessories_equipped = this_person_details[0]
+		var is_furry = this_person_details[1]
 		var x = world_size.x / 2 + 100 * (i + 1)
 		var y = world_size.y / 2 + 100 * (i + 1)
 		create_person(this_face_image[0], this_face_image[1], accessories_equipped, is_furry)
@@ -67,8 +69,16 @@ func get_persons_list() -> Array:
 	# array will contain tuples
 	# each tuple contains attributes
 	return []
+	
+func get_possible_people() -> Array:
+	return [[[true, false, false], true],
+	[[false, true, false], true],
+	[[false, false, true], true],
+	[[false, false, false], false],
+	[[false, false, false], false],
+	[[false, false, false], false]]
 
-func create_person(person_name: String, face_image: String, accessories_equipped: Array[bool], is_furry: bool) -> void:
+func create_person(person_name: String, face_image: String, accessories_equipped: Array, is_furry: bool) -> void:
 	var person = person_scene.instantiate()
 	person.scale = Vector2(0.15, 0.15)
 	person.position = Vector2(

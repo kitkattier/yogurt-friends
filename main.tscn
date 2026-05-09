@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cynysui86hj7h" path="res://assets/water_pato6.png" id="13_82xsv"]
 [ext_resource type="Texture2D" uid="uid://bo3vq238ydo6s" path="res://assets/water_pato7.png" id="14_getpj"]
 [ext_resource type="Texture2D" uid="uid://dc2bufijx0dx5" path="res://assets/water_pato8.png" id="15_ryguw"]
-[ext_resource type="Shader" uid="uid://5ulmi8l3y302" path="res://assets/ocean.gdshader" id="16_2cqfq"]
+[ext_resource type="Shader" path="res://assets/ocean.gdshader" id="16_2cqfq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7mycd"]
 vertices = PackedVector2Array(687.3125, 93.3125, 687.3125, -14.3125, 1261.8438, -62.640625, 1267.5313, 677.7031, -65.61719, -59.726563, 454.6875, -14.3125, -100.6875, 678.6719, 454.6875, 93.3125)
