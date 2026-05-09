@@ -1,15 +1,15 @@
 ~ start
 set movement_disabled = true
 if guessed
-	Them: Piss off => handle_end
+	{{person_name}}: Piss off => handle_end
 elif get_parent().get_yogurt() == 0
-	Them: Talk to me when you have some yogurt. => handle_end
+	{{person_name}}: Talk to me when you have some yogurt. => handle_end
 else
-	Them: Hi!
+	{{person_name}}: Hi!
 	# Can we make the below voicelines attributes of the people :) 
-	% Them: This is random voiceline 1 for either 
-	% Them: This is random voiceline 2 for either 
-	% Them: this is random voiceline 3 for either 
+	% {{person_name}}: This is random voiceline 1 for either 
+	% {{person_name}}: This is random voiceline 2 for either 
+	% {{person_name}}: this is random voiceline 3 for either 
 	=> ask_question
 
 ~ guess
@@ -20,30 +20,30 @@ set guessed = true
 	set correct_guess = is_furry
 	if correct_guess
 		do get_parent().sell()
-		Them: Mmmmm so yummy >.< 
+		{{person_name}}: Mmmmm so yummy >.< 
 		do make_furry()
 		=> handle_end
 	else
 		do get_parent().lose_sell()
-		Them: Ew what do you think I am => handle_end
+		{{person_name}}: Ew what do you think I am => handle_end
 - Foe
 	set correct_guess = not is_furry
-	Them: No problem. Have a great day! => handle_end
+	{{person_name}}: No problem. Have a great day! => handle_end
 - Ask more questions? => ask_question
 	
 
 ~ ask_question
 - Favourite food? [if not questions_answered[0]]
-	Them: {{answers.food}}
+	{{person_name}}: {{answers.food}}
 	set questions_answered[0] = true
 	# THESE ARE COMMENTED OUT BC I CAN'T ACCESS THEM ATM
 	# set [variable that is related to the player on if they've been asked about this question] = True
-	# Them: My answer is {{I need to have their variable in here}}
+	# {{person_name}}: My answer is {{I need to have their variable in here}}
 - Any pets? [if not questions_answered[1]]
-	Them: {{answers.pets}}
+	{{person_name}}: {{answers.pets}}
 	set questions_answered[1] = true
 - What's your job? [if not questions_answered[2]]
-	Them: {{answers.job}}
+	{{person_name}}: {{answers.job}}
 	set questions_answered[2] = true
 - Guess => guess
 
