@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://r4snfemy0s35" path="res://truck/truck.tscn" id="4_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://gsc6qb4yfc5d" path="res://Sneaky Adventure.mp3" id="5_lquwl"]
 
-[node name="Main" type="Node" unique_id=817750452]
+[node name="Main" type="Node2D" unique_id=999424478]
+y_sort_enabled = true
 script = ExtResource("1_0xm2m")
 person_scene = ExtResource("2_h2yge")
 
 [node name="Player" parent="." unique_id=21336461 instance=ExtResource("1_ig7tw")]
-z_index = 1
 position = Vector2(1003, 346)
 
 [node name="StaticBody2D" parent="." unique_id=276943845 instance=ExtResource("4_1bvp3")]
