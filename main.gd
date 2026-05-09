@@ -60,10 +60,15 @@ func _process(_delta: float) -> void:
 func sell() -> void:
 	set_yogurt(0)
 	money += 5000000
+	hud.update_money(money)
 
 func lose_sell() -> void:
 	set_yogurt(0)
-	money -= 5000000
+	if money <= 5000000:
+		money = 0
+	else:
+		money -= 5000000
+	hud.update_money(money)
 
 func get_yogurt() -> int:
 	return _yogurt

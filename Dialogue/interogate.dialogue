@@ -34,16 +34,16 @@ set guessed = true
 
 ~ ask_question
 - Favourite food? [if not questions_answered[0]]
-	{{person_name}}: {{answers.food}}
+	{{person_name}}: {{info[0]}}
 	set questions_answered[0] = true
 	# THESE ARE COMMENTED OUT BC I CAN'T ACCESS THEM ATM
 	# set [variable that is related to the player on if they've been asked about this question] = True
 	# {{person_name}}: My answer is {{I need to have their variable in here}}
 - Any pets? [if not questions_answered[1]]
-	{{person_name}}: {{answers.pets}}
+	{{person_name}}: {{info[1]}}
 	set questions_answered[1] = true
 - What's your job? [if not questions_answered[2]]
-	{{person_name}}: {{answers.job}}
+	{{person_name}}: {{info[2]}}
 	set questions_answered[2] = true
 - Guess => guess
 
