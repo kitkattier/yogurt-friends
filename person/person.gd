@@ -11,7 +11,7 @@ extends CharacterBody2D
 @export var questions_answered: Array[bool] = [false, false, false]
 @export var guessed: bool = false
 @export var correct_guess: bool = false
-@export var accessories_equipped: Array = [false, false, false]  # ears, collar, tail respectively
+@export var accessories_equipped: Array = [0, 0, 0]  # ears, collar, tail respectively
 @export var info: Array = ["pizza", "fish", "teacher"]  # favourite food, pet, occupation
 
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
@@ -44,11 +44,15 @@ func start_conversation():
 	$"/root/Main/Player/AnimatedSprite2D".flip_h = true
 
 func _ready() -> void:
-	if accessories_equipped[0]:
+	if accessories_equipped[0] != 0:
 		$Ears.show()
-	if accessories_equipped[1]:
+	if accessories_equipped[1] != 0:
+		if accessories_equipped[1] == 1:
+			$Collar.play("collar1")
+		else:
+			$Collar.play("collar2")
 		$Collar.show()
-	if accessories_equipped[2]:
+	if accessories_equipped[2] != 0:
 		$Tail.play("tail1")
 		$Tail.show()
 	if randf() < 0.5:

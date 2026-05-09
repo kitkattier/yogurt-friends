@@ -88,12 +88,14 @@ func get_persons_list() -> Array:
 	return []
 	
 func get_possible_people() -> Array:
-	return [[[true, false, false], ["chocolate", "hamster", "software engineer"], true],
-	[[false, true, false], ["chicken", "dog", "waiter"], true],
-	[[false, false, true], ["ice cream", "cat", "singer"], true],
-	[[false, false, false], ["carrot", "rabbit", "accountant"], false],
-	[[false, false, false], ["fries", "dog", "architect"], false],
-	[[false, false, false], ["pie", "chicken", "dancer"], false]]
+	return [
+	[[1, 0, 0], ["chocolate", "hamster", "software engineer"], true],
+	[[0, 1, 0], ["chicken", "dog", "waiter"], true],
+	[[0, 0, 1], ["ice cream", "cat", "singer"], true],
+	[[0, 2, 0], ["grapes", "dolphin", "priest"], false],
+	[[0, 0, 0], ["carrot", "rabbit", "accountant"], false],
+	[[0, 0, 0], ["fries", "dog", "architect"], false],
+	[[0, 0, 0], ["pie", "chicken", "dancer"], false]]
 
 func create_person(person_name: String, face_image: String, accessories_equipped: Array, info: Array, is_furry: bool) -> void:
 	var person = person_scene.instantiate()
