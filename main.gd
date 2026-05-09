@@ -18,7 +18,7 @@ func create_person(x: float, y: float) -> void:
 	# Create a new instance of the Person scene.
 	var person = person_scene.instantiate()
 	
-	person.scale = Vector2(0.2, 0.2)
+	person.scale = Vector2(0.15, 0.15)
 
 	# Set the person's position.
 	person.position = Vector2(x, y)

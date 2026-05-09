@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://du6dflm0cjl34"]
 
-[ext_resource type="Texture2D" uid="uid://cd1unet7yisfo" path="res://person/schmick.png" id="1_0rxw3"]
+[ext_resource type="Texture2D" uid="uid://cq50r7xwp8bay" path="res://person/body.png" id="1_nhqh4"]
 [ext_resource type="Texture2D" uid="uid://b802q75u8blhs" path="res://person/ears1.png" id="2_nhqh4"]
 [ext_resource type="Texture2D" uid="uid://3tgxk48ep588" path="res://person/placeholder_head.png" id="3_rwvyi"]
 [ext_resource type="Texture2D" uid="uid://cnlfno4lehd0t" path="res://person/collar1.png" id="4_7tgfk"]
@@ -9,7 +9,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0rxw3")
+"texture": ExtResource("1_nhqh4")
 }],
 "loop": true,
 "name": &"body1",
@@ -55,13 +55,11 @@ animations = [{
 metadata/_edit_group_ = true
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=1801407185]
-visible = false
-scale = Vector2(0.06, 0.06)
 sprite_frames = SubResource("SpriteFrames_ngoep")
 animation = &"body1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2013974869]
-position = Vector2(0, 100)
+position = Vector2(0, 350)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_xv8dq")
 
