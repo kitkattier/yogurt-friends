@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bh1574be1wc0"
+path="res://.godot/imported/interogate.dialogue-6c21b116438993290846a83a358764c9.tres"
+
+[deps]
+
+source_file="res://Dialogue/interogate.dialogue"
+dest_files=["res://.godot/imported/interogate.dialogue-6c21b116438993290846a83a358764c9.tres"]
+
+[params]
+
+defaults=true
