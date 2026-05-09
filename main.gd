@@ -34,9 +34,10 @@ func _ready() -> void:
 		var this_face_image = face_images.pick_random()
 		# accessories_equipped corresponds to ears, collar, tail, respectively
 		var accessories_equipped: Array[bool] = [true, false, true]
+		var is_furry = true
 		var x = world_size.x / 2 + 100 * (i + 1)
 		var y = world_size.y / 2 + 100 * (i + 1)
-		create_person(this_face_image[0], this_face_image[1], accessories_equipped)
+		create_person(this_face_image[0], this_face_image[1], accessories_equipped, is_furry)
 	timer.timeout.connect(_on_time_up)
 	hud.update_money(0)  # initial value
 	hud.update_yogurt(_yogurt)
@@ -68,7 +69,7 @@ func get_persons_list() -> Array:
 	# each tuple contains attributes
 	return []
 
-func create_person(person_name: String, face_image: String, accessories_equipped: Array[bool]) -> void:
+func create_person(person_name: String, face_image: String, accessories_equipped: Array[bool], is_furry: bool) -> void:
 	var person = person_scene.instantiate()
 	person.scale = Vector2(0.15, 0.15)
 	person.position = Vector2(
@@ -78,6 +79,7 @@ func create_person(person_name: String, face_image: String, accessories_equipped
 	person.person_name = person_name
 	person.face_image = face_image
 	person.accessories_equipped = accessories_equipped
+	person.is_furry = is_furry
 	add_child(person)
 
 func add_border_walls() -> void:
