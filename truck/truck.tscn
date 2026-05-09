@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://r4snfemy0s35"]
+
+[ext_resource type="Texture2D" uid="uid://bstlq227rbu8c" path="res://truck/truck.png" id="1_ywx3u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k54dj"]
+size = Vector2(192, 67)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=276943845]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1888184993]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ywx3u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1255135355]
+position = Vector2(-1, -14.5)
+shape = SubResource("RectangleShape2D_k54dj")
