@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://3tgxk48ep588" path="res://person/placeholder_head.png" id="3_rwvyi"]
 [ext_resource type="Texture2D" uid="uid://niwutil7ft8e" path="res://person/tail14.png" id="4_4rg1v"]
 [ext_resource type="Texture2D" uid="uid://cnlfno4lehd0t" path="res://person/collar1.png" id="4_7tgfk"]
+[ext_resource type="Texture2D" uid="uid://bep826l4bsghp" path="res://person/shoes1.png" id="12_w1jbn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4rg1v"]
 animations = [{
@@ -97,6 +98,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_rn6g6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_w1jbn")
+}],
+"loop": true,
+"name": &"shoes1",
+"speed": 5.0
+}]
+
 [node name="Person" type="CharacterBody2D" unique_id=193851507]
 script = ExtResource("1_tp2ef")
 metadata/_edit_group_ = true
@@ -136,6 +148,11 @@ animation = &"placeholder1"
 position = Vector2(0, -350)
 sprite_frames = SubResource("SpriteFrames_tp2ef")
 animation = &"collar1"
+
+[node name="Shoes" type="AnimatedSprite2D" parent="." unique_id=1181429326]
+position = Vector2(0, -350)
+sprite_frames = SubResource("SpriteFrames_rn6g6")
+animation = &"shoes1"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1750690627]
 avoidance_enabled = true
