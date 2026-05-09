@@ -57,11 +57,11 @@ func _process(_delta: float) -> void:
 	hud.update_time(timer.time_left)
 
 func sell() -> void:
-	_yogurt -= 1
+	set_yogurt(0)
 	money += 5000000
 
 func lose_sell() -> void:
-	_yogurt -= 1
+	set_yogurt(0)
 	money -= 5000000
 
 func get_yogurt() -> int:
