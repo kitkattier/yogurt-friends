@@ -99,8 +99,6 @@ radius = 28.0
 height = 126.0
 
 [node name="Player" type="CharacterBody2D" unique_id=21336461]
-collision_layer = 8
-collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_rkbax")
 metadata/_edit_group_ = true
