@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c5bkouwu28m7q" path="res://person/tail13.png" id="3_g5n6b"]
 [ext_resource type="Texture2D" uid="uid://niwutil7ft8e" path="res://person/tail14.png" id="4_4rg1v"]
 [ext_resource type="Texture2D" uid="uid://cnlfno4lehd0t" path="res://person/collar1.png" id="4_7tgfk"]
+[ext_resource type="Texture2D" uid="uid://dvfxfhbwgokqk" path="res://person/clothes.png" id="10_w8ipj"]
 [ext_resource type="Texture2D" uid="uid://cutpvdn0xpcb7" path="res://person/angryfilter.png" id="12_rn6g6"]
 [ext_resource type="Texture2D" uid="uid://bep826l4bsghp" path="res://person/shoes1.png" id="12_w1jbn"]
 [ext_resource type="PackedScene" uid="uid://bhaivfopynpuh" path="res://actionable.tscn" id="13_amkgb"]
@@ -77,6 +78,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"ears1",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_seiif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_w8ipj")
+}],
+"loop": true,
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -172,6 +184,10 @@ animation = &"ears1"
 
 [node name="Head" type="Sprite2D" parent="." unique_id=936397369]
 position = Vector2(0, -350)
+
+[node name="Clothes" type="AnimatedSprite2D" parent="." unique_id=251237778]
+position = Vector2(0, -350)
+sprite_frames = SubResource("SpriteFrames_seiif")
 
 [node name="Collar" type="AnimatedSprite2D" parent="." unique_id=1690783299]
 position = Vector2(0, -350)
