@@ -7,22 +7,33 @@
 [ext_resource type="AudioStream" uid="uid://gsc6qb4yfc5d" path="res://Sneaky Adventure.mp3" id="5_lquwl"]
 [ext_resource type="Texture2D" uid="uid://bgcgxivbamlth" path="res://assets/grass.jpg" id="6_7mycd"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7mycd"]
+vertices = PackedVector2Array(687.3125, 93.3125, 687.3125, -14.3125, 1261.8438, -62.640625, 1267.5313, 677.7031, -65.61719, -59.726563, 454.6875, -14.3125, -100.6875, 678.6719, 454.6875, 93.3125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1, 5), PackedInt32Array(0, 3, 6, 7), PackedInt32Array(7, 6, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-85, -80, 1282, -83, 1288, 698, -122, 699)])
+parsed_geometry_type = 1
+source_geometry_mode = 2
+agent_radius = 20.31
+
 [node name="Main" type="Node2D" unique_id=999424478]
 y_sort_enabled = true
 script = ExtResource("1_0xm2m")
 person_scene = ExtResource("2_h2yge")
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=750221382]
+navigation_polygon = SubResource("NavigationPolygon_7mycd")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=677210691]
+offset_right = 1200.0
+offset_bottom = 630.0
+texture = ExtResource("6_7mycd")
+
 [node name="Player" parent="." unique_id=21336461 instance=ExtResource("1_ig7tw")]
 position = Vector2(1003, 346)
 
-[node name="StaticBody2D" parent="." unique_id=276943845 instance=ExtResource("4_1bvp3")]
+[node name="Truck" parent="." unique_id=276943845 groups=["navigation_polygon_source_geometry_group"] instance=ExtResource("4_1bvp3")]
 position = Vector2(572, 54)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=939286601]
 stream = ExtResource("5_lquwl")
 autoplay = true
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=677210691]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("6_7mycd")

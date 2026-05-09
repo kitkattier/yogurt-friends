@@ -136,3 +136,9 @@ animation = &"placeholder1"
 position = Vector2(0, -350)
 sprite_frames = SubResource("SpriteFrames_tp2ef")
 animation = &"collar1"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1750690627]
+avoidance_enabled = true
+
+[node name="WaitTimer" type="Timer" parent="." unique_id=1960365475]
+one_shot = true
