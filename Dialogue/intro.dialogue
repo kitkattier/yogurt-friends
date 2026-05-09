@@ -1,0 +1,43 @@
+~ start
+YOU: Yo gurt!
+Gurt: Yo!
+Gurt: Can you help me, I need to get this yogurt out to my customers but i can't be seen on the streets.
+- Yes
+	Gurt: Peak. This is why you a real one
+	Gurt: Have you played this game before?
+	- Yes
+		Gurt: Well you don't need me then. Come by the van to grab more yo[wait=1]gurt.
+	- No, tell me the controls:
+		Gurt: No problem. Movement is done with WASD or the arrow keys.
+		Gurt: To interact with a person, press SPACE or E.
+		Gurt: Your goal is to find fur[wait=1]-iends and sell them yogurt. 
+		Gurt: You have to work out the signs of if they're friends or foe.
+		Gurt: Make sure to only sell to fur[wait=1]-iends!
+		Gurt: Drop by my van to get more yogurt. Best of luck! => END
+- No
+	Gurt: Yes you can, don't lie. => start
+=> END
+
+~ first_talk_friend
+Them: Hi!
+% Them: This is random voiceline 1 for FRIEND
+% Them: This is random voiceline 2 for FRIEND
+% Them: this is random voiceline 3 for FRIEND
+What do you think?
+- Friend
+	set Person.is_known = true
+	Them: Thanks so yummy >.< => END
+- Foe
+	Them: No problem. Have a great day! => END
+	
+~ First_talk_Foe
+Them: Hi!
+% Them: This is random voiceline 1 for FOE
+% Them: This is random voiceline 2 for FOE
+% Them: this is random voiceline 3 for FOE
+What do you think?
+- Friend
+	Them: What do you think I am? Ew
+	Them: Get money somehow => END
+- Foe
+	Them: No problem. Have a great day! => END
