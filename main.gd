@@ -38,9 +38,10 @@ func _ready() -> void:
 		var accessories_equipped = this_person_details[0]
 		var info = this_person_details[1]
 		var is_furry = this_person_details[2]
+		var greeting = this_person_details[3]
 		var x = world_size.x / 2 + 100 * (i + 1)
 		var y = world_size.y / 2 + 100 * (i + 1)
-		create_person(this_face_image[0], this_face_image[1], accessories_equipped, info, is_furry)
+		create_person(this_face_image[0], this_face_image[1], accessories_equipped, info, is_furry, greeting)
 	timer.timeout.connect(_on_time_up)
 	hud.update_money(0)  # initial value
 	hud.update_yogurt(_yogurt)
@@ -89,15 +90,24 @@ func get_persons_list() -> Array:
 	
 func get_possible_people() -> Array:
 	return [
-	[[1, 0, 0], ["chocolate", "hamster", "software engineer"], true],
-	[[0, 1, 0], ["chicken", "dog", "waiter"], true],
-	[[0, 0, 1], ["ice cream", "cat", "singer"], true],
-	[[0, 2, 0], ["grapes", "dolphin", "priest"], false],
-	[[0, 0, 0], ["carrot", "rabbit", "accountant"], false],
-	[[0, 0, 0], ["fries", "dog", "architect"], false],
-	[[0, 0, 0], ["pie", "chicken", "dancer"], false]]
+	[[1, 0, 0], ["chocolate", "hamster", "software engineer"], true,
+	"Lovely day isn't it."],
+	[[0, 1, 0], ["chicken", "dog", "waiter"], true,
+	"Hi there."],
+	[[0, 0, 1], ["ice cream", "cat", "singer"], true,
+	"hiii"],
+	[[0, 0, 0], ["apple", "wolf", "astrophysicist"], true,
+	"oh- hi i didnt see u there uwu"],
+	[[0, 2, 0], ["grapes", "dolphin", "priest"], false,
+	"Greetings."],
+	[[0, 0, 0], ["carrot", "rabbit", "accountant"], false,
+	"Hello."],
+	[[0, 0, 0], ["fries", "dog", "architect"], false,
+	"Hi."],
+	[[0, 0, 0], ["pie", "chicken", "dancer"], false,
+	"Hi."]]
 
-func create_person(person_name: String, face_image: String, accessories_equipped: Array, info: Array, is_furry: bool) -> void:
+func create_person(person_name: String, face_image: String, accessories_equipped: Array, info: Array, is_furry: bool, greeting: String) -> void:
 	var person = person_scene.instantiate()
 	person.scale = Vector2(0.15, 0.15)
 	person.position = Vector2(
@@ -109,6 +119,7 @@ func create_person(person_name: String, face_image: String, accessories_equipped
 	person.accessories_equipped = accessories_equipped
 	person.info = info
 	person.is_furry = is_furry
+	person.greeting = greeting
 	add_child(person)
 
 func add_border_walls() -> void:

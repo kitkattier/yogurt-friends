@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var correct_guess: bool = false
 @export var accessories_equipped: Array = [0, 0, 0]  # ears, collar, tail respectively
 @export var info: Array = ["pizza", "fish", "teacher"]  # favourite food, pet, occupation
+@export var greeting: String = "Hello."
 
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
 @onready var wait_timer: Timer = $WaitTimer
