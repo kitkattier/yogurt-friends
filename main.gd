@@ -55,7 +55,6 @@ func _process(_delta: float) -> void:
 	hud.update_time(timer.time_left)
 
 func get_face_images() -> Array:
-	# TODO: REPLACE THIS WITH REAL PPL FACE IMAGES
 	return [["Alegs", "res://person/alegshead.png"],
 	["Ryan", "res://person/ryanhead.png"],
 	["Pointer", "res://person/pointerhead.png"],
