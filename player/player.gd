@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 var half_size: Vector2
 var interrogation_running: bool = false
+var initial_camera_zoom: Vector2
 
 @onready var actionable_finder: Area2D = $ActionableFinder
 
@@ -12,11 +13,12 @@ func _ready() -> void:
 	var shape := $CollisionShape2D.shape as RectangleShape2D
 	half_size = shape.size / 2
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+	initial_camera_zoom = get_viewport().get_camera_2d().zoom
 	
 func _on_dialogue_ended(resource: DialogueResource):
 	interrogation_running = false
 	var camera = get_viewport().get_camera_2d()
-	camera.set_zoom(Vector2(1, 1))
+	camera.set_zoom(initial_camera_zoom)
 	camera.offset = Vector2.ZERO
 
 func _unhandled_input(event: InputEvent) -> void:
