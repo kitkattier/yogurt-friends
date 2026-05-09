@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nehsxpbmj168"
-path="res://.godot/imported/player.webp-f8efd9c2246a95708b9c4853ed21513e.ctex"
+uid="uid://bfl53vaoy2w08"
+path="res://.godot/imported/Run-hero01_006.png-911f906580f26309dea443c7bec1963a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/player.webp"
-dest_files=["res://.godot/imported/player.webp-f8efd9c2246a95708b9c4853ed21513e.ctex"]
+source_file="res://Character_sprite_sheet_256px/256/Run-hero01_006.png"
+dest_files=["res://.godot/imported/Run-hero01_006.png-911f906580f26309dea443c7bec1963a.ctex"]
 
 [params]
 

@@ -1,14 +1,11 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-
 var half_size: Vector2
-
 
 func _ready() -> void:
 	var shape := $CollisionShape2D.shape as RectangleShape2D
 	half_size = shape.size / 2
-
 
 func _physics_process(_delta: float) -> void:
 	var direction := Vector2(
@@ -18,12 +15,14 @@ func _physics_process(_delta: float) -> void:
 	
 	if direction != Vector2.ZERO:
 		velocity = direction.normalized() * SPEED
+		$AnimatedSprite2D.play("run")
+		$AnimatedSprite2D.flip_h = direction.x < 0  # flip when moving left
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
+		$AnimatedSprite2D.play("idle")
 	
 	move_and_slide()
 	clamp_to_viewport()
-
 
 func clamp_to_viewport() -> void:
 	var viewport_size := get_viewport_rect().size
