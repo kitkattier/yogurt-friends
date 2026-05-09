@@ -157,6 +157,7 @@ sprite_frames = SubResource("SpriteFrames_w1jbn")
 animation = &"tail1"
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=1801407185]
+modulate = Color(1.2079957, 0.7125326, 0.6648189, 1)
 position = Vector2(0, -350)
 sprite_frames = SubResource("SpriteFrames_ngoep")
 animation = &"body1"
