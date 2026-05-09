@@ -28,7 +28,7 @@ func _ready() -> void:
 	# Player starts in center of world
 	$Player.global_position = world_size / 2
 
-	var n = 6
+	var n = 12
 	var face_images = get_face_images()
 	var possible_people = get_possible_people()
 	for i in range(n):
@@ -96,16 +96,24 @@ func get_possible_people() -> Array:
 	"Hi there."],
 	[[0, 0, 1], ["ice cream", "cat", "singer"], true,
 	"hiii"],
-	[[0, 0, 0], ["apple", "wolf", "astrophysicist"], true,
+	[[0, 0, 0], ["apple", "wolf", "rocket scientist"], true,
 	"oh- hi i didnt see u there uwu"],
+	[[0, 0, 0], ["Subway", "shark", "computer science student"], true,
+	"hello"],
+	[[0, 0, 0], ["Yo-Chi", "raven", "business owner"], true,
+	"What do you want..."],
 	[[0, 2, 0], ["grapes", "dolphin", "priest"], false,
 	"Greetings."],
-	[[0, 0, 0], ["carrot", "rabbit", "accountant"], false,
-	"Hello."],
-	[[0, 0, 0], ["fries", "dog", "architect"], false,
-	"Hi."],
+	[[0, 0, 1], ["beef", "goat", "painter"], false,
+	"Oh... you're not here to bully me about my birth defect are you?"],
+	[[1, 0, 0], ["orange", "beetle", "carpenter"], false,
+	"Woof! Sorry a friend dared me to say that."],
+	[[0, 0, 0], ["carrot", "rabbit", "truck driver"], false,
+	"What up."],
+	[[0, 0, 0], ["fries", "dog", "dog walker"], false,
+	"Ah! You scared me."],
 	[[0, 0, 0], ["pie", "chicken", "dancer"], false,
-	"Hi."]]
+	"I'm so hungry..."]]
 
 func create_person(person_name: String, face_image: String, accessories_equipped: Array, info: Array, is_furry: bool, greeting: String) -> void:
 	var person = person_scene.instantiate()
