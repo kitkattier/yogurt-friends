@@ -108,3 +108,5 @@ animation = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1352743883]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_oul6g")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1900688512]
