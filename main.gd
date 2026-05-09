@@ -7,7 +7,8 @@ func _ready() -> void:
 	var n = 5
 	var face_images = get_face_images()
 	for i in range(n):
-		create_person(100*(i+1), 100*(i+1), face_images.pick_random())
+		var this_face_image = face_images.pick_random()
+		create_person(100*(i+1), 100*(i+1), this_face_image[0], this_face_image[1])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,14 +17,15 @@ func _process(delta: float) -> void:
 
 func get_face_images() -> Array:
 	# TODO: REPLACE THIS WITH REAL PPL FACE IMAGES
-	return ["res://person/kirkhead.png"]
+	return [["Kirk", "res://person/kirkhead.png"],
+	["Palm Beach Pete", "res://person/palmbeachpete.png"]]
 
 func get_persons_list() -> Array:
 	# array will contain tuples
 	# each tuple contains attributes
 	return []
 
-func create_person(x: float, y: float, face_image: String) -> void:
+func create_person(x: float, y: float, person_name: String, face_image: String) -> void:
 	# Create a new instance of the Person scene.
 	var person = person_scene.instantiate()
 	
@@ -32,6 +34,7 @@ func create_person(x: float, y: float, face_image: String) -> void:
 	# Set the person's position.
 	person.position = Vector2(x, y)
 	
+	person.person_name = person_name
 	person.face_image = face_image
 	
 	# person.add_child(urthing)

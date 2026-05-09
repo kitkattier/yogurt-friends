@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var min_wait: float = 2.0
 @export var max_wait: float = 10.0
 
+@export var person_name: String = "Name"
+
 @export var face_image: String = "res://person/placeholder_head.png"
 
 var is_furry: bool = true  # set this per NPC, true = actually a furry
