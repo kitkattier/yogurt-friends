@@ -19,6 +19,21 @@ extends CharacterBody2D
 var home_position: Vector2
 var movement_disabled: bool = false
 
+func get_random_hsv() -> Color:
+	# Hue: 0.0 to 1.0 (Full spectrum)
+	# Saturation: 1.0 (Vibrant)
+	# Value: 1.0 (Bright)
+	return Color.from_hsv(randf(), 1.0, 1.0)
+	
+func make_angry() -> void:
+	$Head.modulate = "#ff0000"
+
+func make_furry() -> void:
+	var body_parts = [$Tail, $Body, $Ears, $Head, $Clothes, $Collar, $Shoes]
+	for part in body_parts:
+		part.hide()
+	$FurryForm.show()
+
 func _ready() -> void:
 	if accessories_equipped[0]:
 		$Ears.show()
@@ -27,9 +42,17 @@ func _ready() -> void:
 	if accessories_equipped[2]:
 		$Tail.play("tail1")
 		$Tail.show()
+	if randf() < 0.5:
+		$FurryForm.play("form1")
+	else:
+		$FurryForm.play("form2")
 	$Hoverboard.play("moving")
 	$Hoverboard.hide()
 	$Head.texture = load(face_image)
+	
+	var colour = get_random_hsv()
+	$Clothes.modulate = colour
+	$FurryForm.modulate = colour
 	home_position = global_position
 	wait_timer.timeout.connect(_pick_new_target)
 	agent.velocity_computed.connect(_on_velocity_computed)

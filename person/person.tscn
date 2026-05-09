@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://niwutil7ft8e" path="res://person/tail14.png" id="4_4rg1v"]
 [ext_resource type="Texture2D" uid="uid://cnlfno4lehd0t" path="res://person/collar1.png" id="4_7tgfk"]
 [ext_resource type="Texture2D" uid="uid://dvfxfhbwgokqk" path="res://person/clothes.png" id="10_w8ipj"]
-[ext_resource type="Texture2D" uid="uid://cutpvdn0xpcb7" path="res://person/angryfilter.png" id="12_rn6g6"]
 [ext_resource type="Texture2D" uid="uid://bep826l4bsghp" path="res://person/shoes1.png" id="12_w1jbn"]
 [ext_resource type="PackedScene" uid="uid://bhaivfopynpuh" path="res://actionable.tscn" id="13_amkgb"]
 [ext_resource type="Texture2D" uid="uid://bioqpg0sctre" path="res://person/furry1whiteresized.png" id="13_ndvss"]
@@ -114,17 +113,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_amkgb"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("12_rn6g6")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_dfvs4"]
 animations = [{
 "frames": [{
@@ -208,12 +196,6 @@ avoidance_enabled = true
 
 [node name="WaitTimer" type="Timer" parent="." unique_id=1960365475]
 one_shot = true
-
-[node name="AngryFilter" type="AnimatedSprite2D" parent="." unique_id=1303259303]
-visible = false
-modulate = Color(1, 1, 1, 0.5019608)
-position = Vector2(0, -350)
-sprite_frames = SubResource("SpriteFrames_amkgb")
 
 [node name="FurryForm" type="AnimatedSprite2D" parent="." unique_id=1671653351]
 visible = false
