@@ -2,6 +2,8 @@
 set movement_disabled = true
 if guessed
 	Them: Piss off => handle_end
+elif get_parent().get_yogurt() == 0
+	Them: Talk to me when you have some yogurt. => handle_end
 else
 	Them: Hi!
 	# Can we make the below voicelines attributes of the people :) 
@@ -17,11 +19,12 @@ set guessed = true
 - Friend
 	set correct_guess = is_furry
 	if correct_guess
-	
+		do get_parent().sell()
 		Them: Mmmmm so yummy >.< 
-		do get_parent().set_yogurt(0)
+		do make_furry()
 		=> handle_end
 	else
+		do get_parent().lose_sell()
 		Them: Ew what do you think I am => handle_end
 - Foe
 	set correct_guess = not is_furry

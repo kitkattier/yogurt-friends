@@ -56,6 +56,17 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	hud.update_time(timer.time_left)
 
+func sell() -> void:
+	_yogurt -= 1
+	money += 5000000
+
+func lose_sell() -> void:
+	_yogurt -= 1
+	money -= 5000000
+
+func get_yogurt() -> int:
+	return _yogurt
+
 func get_face_images() -> Array:
 	return [["Alegs", "res://person/alegshead.png"],
 	["Ryan", "res://person/ryanhead.png"],
