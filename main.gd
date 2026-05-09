@@ -55,8 +55,10 @@ func _process(_delta: float) -> void:
 
 func get_face_images() -> Array:
 	# TODO: REPLACE THIS WITH REAL PPL FACE IMAGES
-	return [["Kirk", "res://person/kirkhead.png"],
-	["Palm Beach Pete", "res://person/palmbeachpete.png"]]
+	return [["Alegs", "res://person/alegshead.png"],
+	["Ryan", "res://person/ryanhead.png"],
+	["Pointer", "res://person/pointerhead.png"],
+	["Gareth", "res://person/randohead.png"]]
 
 func _on_time_up() -> void:
 	print("Time's up!")
