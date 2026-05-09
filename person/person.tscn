@@ -1,11 +1,31 @@
 [gd_scene format=3 uid="uid://du6dflm0cjl34"]
 
+[ext_resource type="Texture2D" uid="uid://cd1unet7yisfo" path="res://person/schmick.png" id="1_0rxw3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ngoep"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0rxw3")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv8dq"]
+
 [node name="Person" type="RigidBody2D" unique_id=1971499139]
 gravity_scale = 0.0
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1801407185]
+scale = Vector2(0.06, 0.06)
+sprite_frames = SubResource("SpriteFrames_ngoep")
+animation = &"front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2013974869]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_xv8dq")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=18038879]
