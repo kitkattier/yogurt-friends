@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bn5s8ed15k8jn" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://du6dflm0cjl34" path="res://person/person.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://r4snfemy0s35" path="res://truck/truck.tscn" id="4_1bvp3"]
-[ext_resource type="AudioStream" uid="uid://b27kjlw4b0msa" path="res://Morgana Rides.mp3" id="5_lquwl"]
+[ext_resource type="AudioStream" uid="uid://gsc6qb4yfc5d" path="res://Sneaky Adventure.mp3" id="5_lquwl"]
 
 [node name="Main" type="Node" unique_id=817750452]
 script = ExtResource("1_0xm2m")
