@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c7us4ngtasyob"]
+
+[ext_resource type="Script" uid="uid://c0qg3cb4jg141" path="res://hud/hud.gd" id="1_ki55g"]
+
+[node name="Hud" type="CanvasLayer" unique_id=1965811172]
+script = ExtResource("1_ki55g")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=861538274]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1905638831]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=337744435]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MoneyLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1456861658]
+layout_mode = 2
