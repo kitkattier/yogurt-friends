@@ -9,5 +9,4 @@ script = ExtResource("1_0xm2m")
 person_scene = ExtResource("2_h2yge")
 
 [node name="Player" parent="." unique_id=21336461 instance=ExtResource("1_ig7tw")]
-
-[node name="Marker2D" type="Marker2D" parent="." unique_id=524709334]
+position = Vector2(1003, 346)

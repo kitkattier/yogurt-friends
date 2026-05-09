@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
-size = Vector2(128, 128)
+size = Vector2(64, 65)
 
 [node name="Player" type="CharacterBody2D" unique_id=21336461]
 motion_mode = 1
@@ -23,7 +23,9 @@ script = ExtResource("1_rkbax")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1008412199]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_rkbax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1352743883]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_oul6g")
