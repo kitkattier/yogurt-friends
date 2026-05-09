@@ -1,15 +1,15 @@
 ~ start
 do start_conversation()
 if guessed
-	{{person_name}}: Piss off => handle_end
+	{{person_name}}: We already talked before bruh => handle_end
 elif get_parent().get_yogurt() == 0
 	{{person_name}}: Talk to me when you have some yogurt. => handle_end
 else
-	{{person_name}}: Hi!
+	{{person_name}}: {{greeting}}
 	# Can we make the below voicelines attributes of the people :) 
-	% {{person_name}}: This is random voiceline 1 for either 
-	% {{person_name}}: This is random voiceline 2 for either 
-	% {{person_name}}: this is random voiceline 3 for either 
+	#% {{person_name}}: This is random voiceline 1 for either 
+	#% {{person_name}}: This is random voiceline 2 for either 
+	#% {{person_name}}: this is random voiceline 3 for either 
 	=> ask_question
 
 ~ guess
@@ -20,36 +20,36 @@ set guessed = true
 	set correct_guess = is_furry
 	if correct_guess
 		do get_parent().sell()
-		{{person_name}}: Mmmmm so yummy >.< 
+		{{person_name}}: You're selling yogurt? Of course I'll buy some! Mmmmm so yummy >.< 
 		do make_furry()
 		=> handle_end
 	else
 		do get_parent().lose_sell()
-		{{person_name}}: Ew what do you think I am => handle_end
+		{{person_name}}: You're selling what??? Ew what do you think I am => handle_end
 - Foe
 	set correct_guess = not is_furry
 	{{person_name}}: No problem. Have a great day! => handle_end
-- Ask more questions? => ask_question
+- Ask more questions => ask_question
 	
 
 ~ ask_question
-- Favourite food? [if not questions_answered[0]]
-	{{person_name}}: {{info[0]}}
+- What's your favourite food? [if not questions_answered[0]]
+	{{person_name}}: My favourite food is {{info[0]}}.
 	set questions_answered[0] = true
 	# THESE ARE COMMENTED OUT BC I CAN'T ACCESS THEM ATM
 	# set [variable that is related to the player on if they've been asked about this question] = True
 	# {{person_name}}: My answer is {{I need to have their variable in here}}
-- Any pets? [if not questions_answered[1]]
-	{{person_name}}: {{info[1]}}
+- What's your favourite animal? [if not questions_answered[1]]
+	{{person_name}}: My favourite animal is a {{info[1]}}.
 	set questions_answered[1] = true
 - What's your job? [if not questions_answered[2]]
-	{{person_name}}: {{info[2]}}
+	{{person_name}}: I'm a {{info[2]}}.
 	set questions_answered[2] = true
 - Guess => guess
 
 Want to ask another question?
-- Yes => ask_question
-- No => guess
+- Ask more questions => ask_question
+- Guess => guess
 
 ~ handle_end
 set movement_disabled = false
