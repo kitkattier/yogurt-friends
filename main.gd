@@ -34,14 +34,16 @@ func _ready() -> void:
 		var accessories_equipped: Array[bool] = [true, false, true]
 		var x = world_size.x / 2 + 100 * (i + 1)
 		var y = world_size.y / 2 + 100 * (i + 1)
-		create_person(x, y, this_face_image[0], this_face_image[1], accessories_equipped)
+		create_person(this_face_image[0], this_face_image[1], accessories_equipped)
 	timer.timeout.connect(_on_time_up)
 	hud.update_money(0)  # initial value
 	timer.start()
-
+	
+	$Truck.position = world_size / 2
 	fill_sand()
 	scatter_props()
 	add_border_walls()
+	setup_navigation()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -61,16 +63,16 @@ func get_persons_list() -> Array:
 	# each tuple contains attributes
 	return []
 
-func create_person(x: float, y: float, person_name: String, face_image: String, accessories_equipped: Array[bool]) -> void:
-	# Create a new instance of the Person scene.
+func create_person(person_name: String, face_image: String, accessories_equipped: Array[bool]) -> void:
 	var person = person_scene.instantiate()
 	person.scale = Vector2(0.15, 0.15)
-	person.position = Vector2(x, y)
+	person.position = Vector2(
+		randf_range(200, world_size.x - 200),
+		randf_range(200, world_size.y - 200)
+	)
 	person.person_name = person_name
 	person.face_image = face_image
 	person.accessories_equipped = accessories_equipped
-
-	# Spawn the person by adding it to the Main scene.
 	add_child(person)
 
 func add_border_walls() -> void:
@@ -104,37 +106,74 @@ func fill_sand() -> void:
 
 func scatter_props() -> void:
 	var props = {
-		"res://assets/beach_tree.png": 15,
-		"res://assets/bird.png.png": 20,
-		"res://assets/beach_stump.png": 15,
-		"res://assets/beach_mushroom.png": 10,
-		"res://assets/poop_bucket.png": 10,
+		"res://assets/beach_tree.png": 0.0015,
+		"res://assets/bird.png.png": 0.002,
+		"res://assets/beach_stump.png": 0.0015,
+		"res://assets/beach_mushroom.png": 0.001,
+		"res://assets/poop_bucket.png": 0.0010,
 	}
+	
+	var van_pos = world_size / 2
+	var van_clear_radius = 500.0
 	
 	for path in props:
 		var texture = load(path)
-		var count = props[path]
+		if texture == null:
+			print("FAILED TO LOAD: ", path)
+			continue
+		
+		var count = int(world_size.x * world_size.y * props[path] / 1000.0)
+		
 		for i in range(count):
-			var body = StaticBody2D.new()
-			var sprite = Sprite2D.new()
-			var collision = CollisionShape2D.new()
-			var shape = RectangleShape2D.new()
+			var pos: Vector2
+			var attempts = 0
+			while attempts < 10:
+				pos = Vector2(
+					randf_range(150, world_size.x - 150),
+					randf_range(150, world_size.y - 150)
+				)
+				if pos.distance_to(van_pos) > van_clear_radius:
+					break
+				attempts += 1
 			
+			var body = StaticBody2D.new()
+			body.collision_layer = 1
+			body.collision_mask = 1
+			
+			var sprite = Sprite2D.new()
 			sprite.texture = texture
 			sprite.flip_h = randi() % 2 == 0
-			
 			var s = randf_range(0.8, 1.2)
 			sprite.scale = Vector2(s, s)
 			
-			# Collision size based on texture size
-			shape.size = texture.get_size() * s * 0.7  # 0.7 so collision is slightly smaller than sprite
+			var collision = CollisionShape2D.new()
+			var shape = RectangleShape2D.new()
+			shape.size = texture.get_size() * s * 0.7
 			collision.shape = shape
 			
+			var obstacle = NavigationObstacle2D.new()
+			obstacle.radius = texture.get_size().x * s * 0.5
+			
+			obstacle.avoidance_enabled = true
 			body.add_child(sprite)
 			body.add_child(collision)
+			body.add_child(obstacle)
+			body.position = pos
 			body.z_index = 1
-			body.position = Vector2(
-				randf_range(150, world_size.x - 150),
-				randf_range(150, world_size.y - 150)
-			)
 			add_child(body)
+			
+func setup_navigation() -> void:
+	var nav = NavigationRegion2D.new()
+	var nav_poly = NavigationPolygon.new()
+	
+	var outline = PackedVector2Array([
+		Vector2(150, 150),
+		Vector2(world_size.x - 150, 150),
+		Vector2(world_size.x - 150, world_size.y - 150),
+		Vector2(150, world_size.y - 150)
+	])
+	
+	nav_poly.add_outline(outline)
+	nav_poly.make_polygons_from_outlines()
+	nav.navigation_polygon = nav_poly
+	add_child(nav)

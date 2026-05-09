@@ -92,13 +92,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
-size = Vector2(64, 65)
+size = Vector2(80, 96.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_65viv"]
 radius = 28.0
 height = 126.0
 
 [node name="Player" type="CharacterBody2D" unique_id=21336461]
+collision_layer = 8
 motion_mode = 1
 script = ExtResource("1_rkbax")
 metadata/_edit_group_ = true
@@ -110,6 +111,7 @@ sprite_frames = SubResource("SpriteFrames_rkbax")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1352743883]
+position = Vector2(0, -7.875)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_oul6g")
 
