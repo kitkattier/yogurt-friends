@@ -3,12 +3,33 @@
 [ext_resource type="Texture2D" uid="uid://cq50r7xwp8bay" path="res://person/body.png" id="1_nhqh4"]
 [ext_resource type="Texture2D" uid="uid://d1v0irgidqxb6" path="res://person/tail11.png" id="1_qpckf"]
 [ext_resource type="Script" uid="uid://c3mn8mgxcurm2" path="res://person/person.gd" id="1_tp2ef"]
+[ext_resource type="Texture2D" uid="uid://souginll0j6m" path="res://person/hoveringboard.png" id="2_g5n6b"]
 [ext_resource type="Texture2D" uid="uid://b802q75u8blhs" path="res://person/ears1.png" id="2_nhqh4"]
 [ext_resource type="Texture2D" uid="uid://cdieiey37511d" path="res://person/tail12.png" id="2_tp2ef"]
+[ext_resource type="Texture2D" uid="uid://cs01f47cjnv0x" path="res://person/hoverboard1.png" id="3_4rg1v"]
 [ext_resource type="Texture2D" uid="uid://c5bkouwu28m7q" path="res://person/tail13.png" id="3_g5n6b"]
 [ext_resource type="Texture2D" uid="uid://3tgxk48ep588" path="res://person/placeholder_head.png" id="3_rwvyi"]
 [ext_resource type="Texture2D" uid="uid://niwutil7ft8e" path="res://person/tail14.png" id="4_4rg1v"]
 [ext_resource type="Texture2D" uid="uid://cnlfno4lehd0t" path="res://person/collar1.png" id="4_7tgfk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4rg1v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g5n6b")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4rg1v")
+}],
+"loop": true,
+"name": &"still",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w1jbn"]
 animations = [{
@@ -79,6 +100,11 @@ animations = [{
 [node name="Person" type="CharacterBody2D" unique_id=193851507]
 script = ExtResource("1_tp2ef")
 metadata/_edit_group_ = true
+
+[node name="Hoverboard" type="AnimatedSprite2D" parent="." unique_id=1121112255]
+position = Vector2(0, -350)
+sprite_frames = SubResource("SpriteFrames_4rg1v")
+animation = &"still"
 
 [node name="Tail" type="AnimatedSprite2D" parent="." unique_id=231345322]
 position = Vector2(0, -350)
