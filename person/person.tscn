@@ -162,6 +162,7 @@ sprite_frames = SubResource("SpriteFrames_4rg1v")
 animation = &"moving"
 
 [node name="Tail" type="AnimatedSprite2D" parent="." unique_id=231345322]
+visible = false
 position = Vector2(0, -350)
 sprite_frames = SubResource("SpriteFrames_w1jbn")
 animation = &"tail1"
@@ -178,6 +179,7 @@ shape = SubResource("RectangleShape2D_xv8dq")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=18038879]
 
 [node name="Ears" type="AnimatedSprite2D" parent="." unique_id=2042980167]
+visible = false
 position = Vector2(0, -350)
 sprite_frames = SubResource("SpriteFrames_5a43e")
 animation = &"ears1"
@@ -190,6 +192,7 @@ position = Vector2(0, -350)
 sprite_frames = SubResource("SpriteFrames_seiif")
 
 [node name="Collar" type="AnimatedSprite2D" parent="." unique_id=1690783299]
+visible = false
 position = Vector2(0, -350)
 sprite_frames = SubResource("SpriteFrames_tp2ef")
 animation = &"collar1"

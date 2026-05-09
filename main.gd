@@ -12,7 +12,9 @@ func _ready() -> void:
 	var face_images = get_face_images()
 	for i in range(n):
 		var this_face_image = face_images.pick_random()
-		create_person(100*(i+1), 100*(i+1), this_face_image[0], this_face_image[1])
+		# accessories_equipped corresponds to ears, collar, tail, respectively
+		var accessories_equipped: Array[bool] = [true, false, true]
+		create_person(100*(i+1), 100*(i+1), this_face_image[0], this_face_image[1], accessories_equipped)
 	timer.timeout.connect(_on_time_up)
 	hud.update_money(0)  # initial value
 	timer.start()
@@ -35,7 +37,7 @@ func get_persons_list() -> Array:
 	# each tuple contains attributes
 	return []
 
-func create_person(x: float, y: float, person_name: String, face_image: String) -> void:
+func create_person(x: float, y: float, person_name: String, face_image: String, accessories_equipped: Array[bool]) -> void:
 	# Create a new instance of the Person scene.
 	var person = person_scene.instantiate()
 	
@@ -46,6 +48,7 @@ func create_person(x: float, y: float, person_name: String, face_image: String) 
 	
 	person.person_name = person_name
 	person.face_image = face_image
+	person.accessories_equipped = accessories_equipped
 	
 
 	# Spawn the person by adding it to the Main scene.

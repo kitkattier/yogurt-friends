@@ -11,6 +11,7 @@ extends CharacterBody2D
 @export var questions_answered: Array[bool] = [false, false, false]
 @export var guessed: bool = false
 @export var correct_guess: bool = false
+@export var accessories_equipped: Array[bool] = [false, false, false]  # ears, collar, tail respectively
 
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
 @onready var wait_timer: Timer = $WaitTimer
@@ -19,7 +20,13 @@ var home_position: Vector2
 var movement_disabled: bool = false
 
 func _ready() -> void:
-	$Tail.play("tail1")
+	if accessories_equipped[0]:
+		$Ears.show()
+	if accessories_equipped[1]:
+		$Collar.show()
+	if accessories_equipped[2]:
+		$Tail.play("tail1")
+		$Tail.show()
 	$Hoverboard.play("moving")
 	$Hoverboard.hide()
 	$Head.texture = load(face_image)
