@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var min_wait: float = 2.0
 @export var max_wait: float = 10.0
 
+@export var face_image: String = "res://person/placeholder_head.png"
+
 var is_furry: bool = true  # set this per NPC, true = actually a furry
 
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
@@ -16,6 +18,7 @@ func _ready() -> void:
 	$Tail.play("tail1")
 	$Hoverboard.play("moving")
 	$Hoverboard.hide()
+	$Head.texture = load(face_image)
 	home_position = global_position
 	wait_timer.timeout.connect(_pick_new_target)
 	agent.velocity_computed.connect(_on_velocity_computed)
