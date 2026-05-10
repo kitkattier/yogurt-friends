@@ -32,7 +32,7 @@ func _ready() -> void:
 	var face_images = get_face_images()
 	var possible_people = get_possible_people()
 	for i in range(n):
-		var this_face_image = face_images.pick_random()
+		var this_face_image = face_images[i % 6]
 		var this_person_details = possible_people[i]
 		# accessories_equipped corresponds to ears, collar, tail, respectively
 		var accessories_equipped = this_person_details[0]
@@ -79,7 +79,8 @@ func get_face_images() -> Array:
 	["Ryan", "res://person/ryanhead.png"],
 	["Pointer", "res://person/pointerhead.png"],
 	["Gareth", "res://person/randohead.png"],
-	["Oscar", "res://person/oscarhead.png"]]
+	["Oscar", "res://person/oscarhead.png"],
+	["Kai", "res://person/kaihead.png"]]
 
 func _on_time_up() -> void:
 	print("Time's up!")
@@ -98,18 +99,18 @@ func get_possible_people() -> Array:
 	"hello"],
 	[[0, 0, 0], ["Yo-Chi", "raven", "business owner"], true,
 	"What do you want..."],
-	[[0, 2, 0], ["grapes", "dolphin", "priest"], false,
-	"Greetings."],
-	[[0, 0, 1], ["beef", "goat", "painter"], false,
-	"Oh... you're not here to bully me about my birth defect are you?"],
-	[[1, 0, 0], ["orange", "beetle", "carpenter"], false,
-	"Woof! Sorry a friend dared me to say that."],
 	[[0, 0, 0], ["carrot", "rabbit", "truck driver"], false,
 	"What up."],
 	[[0, 0, 0], ["fries", "dog", "dog walker"], false,
 	"Ah! You scared me."],
 	[[0, 0, 0], ["pie", "chicken", "dancer"], false,
-	"I'm so hungry..."]]
+	"I'm so hungry..."],
+	[[0, 2, 0], ["grapes", "dolphin", "priest"], false,
+	"Greetings."],
+	[[0, 0, 1], ["beef", "goat", "painter"], false,
+	"Oh... you're not here to bully me about my birth defect are you?"],
+	[[1, 0, 0], ["orange", "beetle", "carpenter"], false,
+	"Woof! Sorry a friend dared me to say that."]]
 
 func create_person(person_name: String, face_image: String, accessories_equipped: Array, info: Array, is_furry: bool, greeting: String) -> void:
 	var person = person_scene.instantiate()
