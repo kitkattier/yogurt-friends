@@ -4,10 +4,6 @@ Gurt: [img]res://gurt.png[/img] Yo!
 Gurt:  [img]res://gurt.png[/img] Can you help me, I need to find customers to buy my yogurt but i can't be seen on the streets.
 - Yes
 	Gurt: [img]res://gurt.png[/img] Peak. This is why you a real one
-	Gurt: [img]res://gurt.png[/img] Would you like to play with your own photo on the character?
-	- Yes
-		do take_photo()
-	- No
 - No
 	[img]res://gurt.png[/img] Gurt: Yes you can, don't lie. => start
 => END
