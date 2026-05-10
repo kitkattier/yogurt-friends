@@ -245,6 +245,7 @@ func set_yogurt(new_yogurt: int) -> void:
 	_yogurt = new_yogurt
 	hud.update_yogurt(new_yogurt)
 	if money >= 5:
+		timer.stop()
 		$Ending.start_ending_scene()
 
 func take_photo() -> void:
