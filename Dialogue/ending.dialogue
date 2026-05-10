@@ -1,0 +1,34 @@
+~ start
+Gurt: [img]res://gurt.png[/img] Yo!
+Gurt: [img]res://gurt.png[/img] So, we sold all the yogurt...
+YOU: Yes... we did it
+Gurt: So I guess this is the end then
+YOU: Yeah I guess
+Gurt: [img]res://gurt.png[/img] I really enjoyed working with you, you're an amazing person.
+YOU: Really? I- i- thank you. I really needed to hear that.
+Gurt: [img]res://gurt.png[/img] I mean it. I really enjoyed your company. I uh- i really enjoy you
+YOU: Me too. Um- I- Sorry I don't know what to say
+Gurt: [img]res://gurt.png[/img] You don't have to say anything, look at me.
+YOU: Your eyes... are beautiful. They have never been this clear. I- I have never been this clear.
+Gurt: [img]res://gurt.png[/img] M-m-m me too. I- I really feel like myself when I'm with you.
+Gurt: [img]res://gurt.png[/img] Truth is, I cannot imagine parting ways and being without you.
+- We don't have to part ways just yet.
+	Gurt: [img]res://gurt.png[/img] Really? I- thank you.
+	Gurt: [img]res://gurt.png[/img] Oh wait. There's still one yogurt left, I forgot it was in my pocket.
+	YOU: Oh wow! Should I go look for someone to give it to then?
+	Gurt: [img]res://gurt.png[/img] *looks at you*
+	Gurt: [img]res://gurt.png[/img] No. I think you know what to do.
+	YOU: Yes. I think I'm ready.
+	YOU: *eats the yogurt*
+	# TODO: ADD THE WOLF TRANFORM IMAGE HERE
+	Gurt: [img]res://gurt.png[/img] *holds your hand* We're going to be fine.
+	Gurt: [img]res://gurt.png[/img] Your skin, it- it's so soft.
+	Gurt: [img]res://gurt.png[/img] *pulls you closer*
+	Gurt: [img]res://gurt.png[/img] Are you sure about this?
+	- YOU: I've never been more sure of anything.
+			# ENDING LOGIC HERE
+	- YOU: I'm having second thoughts.
+		Gurt: [img]res://gurt.png[/img] I'm sorry for all this. I should leave.
+	- What did you have for lunch?
+		- Gurt: [img]res://gurt.png[/img] yogurt.
+	- I'm sorry but we should leave.
