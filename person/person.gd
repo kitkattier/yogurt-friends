@@ -44,19 +44,43 @@ func make_furry() -> void:
 	
 func furry_transformation() -> void:
 	var duration := 5.0
-	var base_scale := scale  # remember the original
+	var half := duration / 2.0
+	var base_scale := scale
 	var tween := create_tween().set_parallel(true)
+	
+	# First half - accelerating oscillation
 	tween.tween_method(
 		func(t: float): _oscillate_scale_x(t, base_scale.x),
-		0.0, duration, duration
+		0.0, half, half
 	)
 	tween.tween_method(
 		func(t: float): _oscillate_scale_y(t, base_scale.y),
-		0.0, duration, duration
+		0.0, half, half
 	)
-	# Snap back to original scale, then transform
+	
+	# At halfway point, transform and capture new furry scale
+	tween.chain().tween_callback(func():
+		make_furry()
+		var furry_scale := scale  # capture scale AFTER make_furry
+		
+		var tween2 := create_tween().set_parallel(true)
+		tween2.tween_method(
+			func(t: float):
+				var t_mirror := half - t
+				var phase := 1.0 * t_mirror + 4.0 * t_mirror * t_mirror * 0.5
+				scale.x = furry_scale.x * (1.0 + 3 * sin(phase * TAU) * t_mirror / 4),
+			0.0, half, half
+		)
+		tween2.tween_method(
+			func(t: float):
+				var t_mirror := half - t
+				var phase := 1.5 * t_mirror + 4.5 * t_mirror * t_mirror * 0.5
+				scale.y = furry_scale.y * (1.0 + 0.5 * sin(phase * TAU) * t_mirror / 4),
+			0.0, half, half
+		)
+	)
+	# Set back to original
 	tween.chain().tween_callback(func(): scale = base_scale)
-	tween.tween_callback(make_furry)
 
 func _oscillate_scale_x(t: float, base: float) -> void:
 	var base_freq := 1
