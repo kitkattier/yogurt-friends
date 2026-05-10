@@ -58,6 +58,7 @@ func _ready() -> void:
 	setup_navigation()
 	
 	DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/intro.dialogue"), "start", [self, $Player])
+	DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/intro2.dialogue"), "start", [self, $Player])
 	await DialogueManager.dialogue_ended
 	timer.start()
 
