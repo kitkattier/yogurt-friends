@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cynysui86hj7h" path="res://assets/water_pato6.png" id="13_82xsv"]
 [ext_resource type="Texture2D" uid="uid://bo3vq238ydo6s" path="res://assets/water_pato7.png" id="14_getpj"]
 [ext_resource type="Texture2D" uid="uid://dc2bufijx0dx5" path="res://assets/water_pato8.png" id="15_ryguw"]
-[ext_resource type="Shader" path="res://assets/ocean.gdshader" id="16_2cqfq"]
+[ext_resource type="Shader" uid="uid://5ulmi8l3y302" path="res://assets/ocean.gdshader" id="16_2cqfq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7mycd"]
 vertices = PackedVector2Array(687.3125, 93.3125, 687.3125, -14.3125, 1261.8438, -62.640625, 1267.5313, 677.7031, -65.61719, -59.726563, 454.6875, -14.3125, -100.6875, 678.6719, 454.6875, 93.3125)
@@ -439,87 +439,23 @@ texture = ExtResource("9_yaehf")
 5:47/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d13ii"]
-load_path = "res://.godot/imported/GALVwellen1%(10).png-6d67fecefb45a9b492044eeca465401d.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_272bh"]
 texture = SubResource("CompressedTexture2D_d13ii")
 texture_region_size = Vector2i(64, 64)
-0:0/animation_columns = 1
-0:0/animation_separation = Vector2i(0, 4)
-0:0/animation_speed = 2.0
 0:0/0 = 0
-1:0/animation_separation = Vector2i(0, 5)
-1:0/animation_speed = 2.0
 1:0/0 = 0
-2:0/animation_separation = Vector2i(0, 5)
-2:0/animation_speed = 2.0
 2:0/0 = 0
-3:0/animation_separation = Vector2i(0, 5)
-3:0/animation_speed = 2.0
 3:0/0 = 0
-4:0/animation_separation = Vector2i(0, 5)
-4:0/animation_speed = 2.0
 4:0/0 = 0
-5:0/animation_separation = Vector2i(0, 5)
-5:0/animation_speed = 2.0
 5:0/0 = 0
-6:0/animation_separation = Vector2i(0, 5)
-6:0/animation_speed = 2.0
 6:0/0 = 0
-0:1/animation_columns = 1
-0:1/animation_separation = Vector2i(0, 4)
-0:1/animation_frame_0/duration = 1.0
-0:1/animation_frame_1/duration = 1.0
-0:1/animation_frame_2/duration = 1.0
-0:1/animation_frame_3/duration = 1.0
 0:1/0 = 0
-1:1/animation_columns = 1
-1:1/animation_separation = Vector2i(0, 4)
-1:1/animation_speed = 2.0
-1:1/animation_frame_0/duration = 1.0
-1:1/animation_frame_1/duration = 1.0
-1:1/animation_frame_2/duration = 1.0
-1:1/animation_frame_3/duration = 1.0
 1:1/0 = 0
-2:1/animation_columns = 1
-2:1/animation_separation = Vector2i(0, 4)
-2:1/animation_speed = 2.0
-2:1/animation_frame_0/duration = 1.0
-2:1/animation_frame_1/duration = 1.0
-2:1/animation_frame_2/duration = 1.0
-2:1/animation_frame_3/duration = 1.0
 2:1/0 = 0
-3:1/animation_columns = 1
-3:1/animation_separation = Vector2i(0, 4)
-3:1/animation_speed = 2.0
-3:1/animation_frame_0/duration = 1.0
-3:1/animation_frame_1/duration = 1.0
-3:1/animation_frame_2/duration = 1.0
-3:1/animation_frame_3/duration = 1.0
 3:1/0 = 0
-4:1/animation_columns = 1
-4:1/animation_separation = Vector2i(0, 4)
-4:1/animation_speed = 2.0
-4:1/animation_frame_0/duration = 1.0
-4:1/animation_frame_1/duration = 1.0
-4:1/animation_frame_2/duration = 1.0
-4:1/animation_frame_3/duration = 1.0
 4:1/0 = 0
-5:1/animation_columns = 1
-5:1/animation_separation = Vector2i(0, 4)
-5:1/animation_speed = 2.0
-5:1/animation_frame_0/duration = 1.0
-5:1/animation_frame_1/duration = 1.0
-5:1/animation_frame_2/duration = 1.0
-5:1/animation_frame_3/duration = 1.0
 5:1/0 = 0
-6:1/animation_columns = 1
-6:1/animation_separation = Vector2i(0, 4)
-6:1/animation_speed = 2.0
-6:1/animation_frame_0/duration = 1.0
-6:1/animation_frame_1/duration = 1.0
-6:1/animation_frame_2/duration = 1.0
-6:1/animation_frame_3/duration = 1.0
 6:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
@@ -545,16 +481,7 @@ texture_region_size = Vector2i(64, 64)
 5:4/0 = 0
 6:4/0 = 0
 7:4/0 = 0
-7:1/animation_columns = 1
-7:1/animation_separation = Vector2i(0, 4)
-7:1/animation_speed = 2.0
-7:1/animation_frame_0/duration = 1.0
-7:1/animation_frame_1/duration = 1.0
-7:1/animation_frame_2/duration = 1.0
-7:1/animation_frame_3/duration = 1.0
 7:1/0 = 0
-7:0/animation_separation = Vector2i(0, 5)
-7:0/animation_speed = 2.0
 7:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kek77"]

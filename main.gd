@@ -42,10 +42,16 @@ func _ready() -> void:
 		var x = world_size.x / 2 + 100 * (i + 1)
 		var y = world_size.y / 2 + 100 * (i + 1)
 		create_person(this_face_image[0], this_face_image[1], accessories_equipped, info, is_furry, greeting)
+	
+	take_photo()
+	
+	
 	timer.timeout.connect(_on_time_up)
 	hud.update_money(0)  # initial value
 	hud.update_yogurt(_yogurt)
 	timer.start()
+	
+	
 	
 	$Truck.position = world_size / 2
 	fill_sand()
@@ -233,3 +239,10 @@ func setup_navigation() -> void:
 func set_yogurt(new_yogurt: int) -> void:
 	_yogurt = new_yogurt
 	hud.update_yogurt(new_yogurt)
+
+func take_photo() -> void:
+	OS.execute("python3", [ProjectSettings.globalize_path("res://capture_face.py")])
+	await get_tree().create_timer(5.0).timeout  # wait for user to take photo
+	var img = Image.load_from_file(ProjectSettings.globalize_path("res://character.png"))
+	if img:
+		$Player/Face.texture = ImageTexture.create_from_image(img)
