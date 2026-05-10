@@ -2,7 +2,7 @@ extends Node
 
 @export var dialogue_resource: DialogueResource
 
-var good_ending: bool
+var good_ending: bool = true
 
 const EVIL = preload("res://ending/evil_sunset.png")
 

@@ -18,7 +18,10 @@ func _ready() -> void:
 	
 func _on_dialogue_ended(resource: DialogueResource):
 	interrogation_running = false
-	var camera = get_viewport().get_camera_2d()
+	var viewport = get_viewport()
+	if viewport == null:
+		return
+	var camera = viewport.get_camera_2d()
 	camera.set_zoom(initial_camera_zoom)
 	camera.offset = Vector2.ZERO
 

@@ -96,7 +96,7 @@ func get_face_images() -> Array:
 	["Nic", "res://person/nichead.png"]]
 
 func _on_time_up() -> void:
-	GameState.good_ending = money >= 3
+	GameState.good_ending = money >= 2 
 	get_tree().change_scene_to_file("res://ending/ending.tscn")
 	
 func get_possible_people() -> Array:
@@ -247,10 +247,11 @@ func setup_navigation() -> void:
 func set_yogurt(new_yogurt: int) -> void:
 	_yogurt = new_yogurt
 	hud.update_yogurt(new_yogurt)
-	if money >= 5:
+	if money >= 2:
 		timer.stop()
-		$Ending.start_ending_scene()
-
+		GameState.good_ending = true
+		get_tree().change_scene_to_file("res://ending/ending.tscn")
+		
 func take_photo() -> void:
 	OS.execute("python3", [ProjectSettings.globalize_path("res://capture_face.py")])
 	await get_tree().create_timer(5.0).timeout  # wait for user to take photo

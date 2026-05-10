@@ -2029,6 +2029,7 @@ scale = Vector2(2, 2)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=939286601]
 stream = ExtResource("5_lquwl")
+volume_db = 10.692
 autoplay = true
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1041680940]

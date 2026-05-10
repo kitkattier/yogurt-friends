@@ -1,5 +1,11 @@
 # Yogurt Friends!
 
+## How to Run
+
+1. Download Godot
+2. Open project.godot with Godot
+3. Run
+
 ## References
 
 We used the follonwing assets:
