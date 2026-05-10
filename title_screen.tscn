@@ -12,21 +12,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v6p8y")
 
-[node name="StartButton" type="Button" parent="." unique_id=1397980894]
-layout_mode = 0
-offset_left = 554.0
-offset_top = 202.0
-offset_right = 1065.0
-offset_bottom = 569.0
-text = "start"
-
 [node name="TextureRect" type="TextureRect" parent="." unique_id=50746525]
+light_mask = 2
+visibility_layer = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -385.0
+offset_right = 190.0
+offset_bottom = 283.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ak2if")
+
+[node name="StartButton" type="Button" parent="." unique_id=1397980894]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 802.0
+offset_right = 546.0
+offset_bottom = 1085.0
+text = "start"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
