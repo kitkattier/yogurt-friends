@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Yogurt Friends"
-run/main_scene="uid://d3ahhyh4ojf0q"
+run/main_scene="uid://bgcd11e3x613e"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
