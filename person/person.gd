@@ -43,6 +43,7 @@ func make_furry() -> void:
 	$FurryForm.show()
 	
 func furry_transformation() -> void:
+	$Yogurt.show()
 	var duration := 5.0
 	var half := duration / 2.0
 	var base_scale := scale
@@ -60,6 +61,7 @@ func furry_transformation() -> void:
 	
 	# At halfway point, transform and capture new furry scale
 	tween.chain().tween_callback(func():
+		$Yogurt.hide()
 		make_furry()
 		var furry_scale := scale  # capture scale AFTER make_furry
 		

@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bioqpg0sctre" path="res://person/furry1whiteresized.png" id="13_ndvss"]
 [ext_resource type="Resource" uid="uid://bh1574be1wc0" path="res://Dialogue/interogate.dialogue" id="14_amkgb"]
 [ext_resource type="Texture2D" uid="uid://bdpcjl2tx35ir" path="res://person/furry2whitesmall.png" id="14_dfvs4"]
+[ext_resource type="Texture2D" uid="uid://cdbromc0nyqe0" path="res://hud/yogurt.png" id="14_seiif"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4rg1v"]
 animations = [{
@@ -122,6 +123,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_jfkkn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_seiif")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_dfvs4"]
 animations = [{
 "frames": [{
@@ -200,6 +212,12 @@ position = Vector2(0, -350)
 position = Vector2(0, -350)
 sprite_frames = SubResource("SpriteFrames_rn6g6")
 animation = &"shoes1"
+
+[node name="Yogurt" type="AnimatedSprite2D" parent="." unique_id=2094561792]
+visible = false
+position = Vector2(0, -200)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_jfkkn")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1750690627]
 avoidance_enabled = true
