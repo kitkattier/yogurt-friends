@@ -26,7 +26,7 @@ set guessed = true
 		=> handle_end
 	else
 		do get_parent().lose_sell()
-		{{person_name}}: You're selling what??? Ew what do you think I am => handle_end
+		{{person_name}}: You're selling what??? Ew what do you think I am [do make_angry()] => handle_end
 - Foe
 	set correct_guess = not is_furry
 	{{person_name}}: No problem. Have a great day! => handle_end
