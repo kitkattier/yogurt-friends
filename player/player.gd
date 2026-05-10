@@ -5,6 +5,7 @@ var half_size: Vector2
 var interrogation_running: bool = false
 var initial_camera_zoom: Vector2
 
+
 @onready var actionable_finder: Area2D = $ActionableFinder
 
 signal interrogation_started

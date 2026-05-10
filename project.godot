@@ -71,3 +71,4 @@ locale/translations_pot_files=PackedStringArray("res://Dialogue/example.dialogue
 
 rendering_device/driver.windows="d3d12"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+viewport/main_scene="uid://bgcd11e3x613e"

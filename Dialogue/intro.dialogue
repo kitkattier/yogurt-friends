@@ -20,4 +20,5 @@ Gurt:  [img]res://gurt.png[/img] Can you help me, I need to get this yogurt out 
 		Gurt: [img]res://gurt.png[/img] Drop by my van to get more yogurt. Best of luck! => END
 - No
 	[img]res://gurt.png[/img] Gurt: Yes you can, don't lie. => start
+set interrogation_running = false
 => END
