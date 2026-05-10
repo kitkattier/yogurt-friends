@@ -48,7 +48,6 @@ func _ready() -> void:
 	timer.timeout.connect(_on_time_up)
 	hud.update_money(0)  # initial value
 	hud.update_yogurt(_yogurt)
-	timer.start()
 	
 	
 	
@@ -59,7 +58,8 @@ func _ready() -> void:
 	setup_navigation()
 	
 	DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/intro.dialogue"), "start", [self, $Player])
-	
+	await DialogueManager.dialogue_ended
+	timer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
