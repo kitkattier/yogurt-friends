@@ -20,8 +20,9 @@ set guessed = true
 	set correct_guess = is_furry
 	if correct_guess
 		do get_parent().sell()
-		{{person_name}}: You're selling yogurt? Of course I'll buy some! Mmmmm so yummy >.< 
-		do make_furry()
+		
+		{{person_name}}: You're selling yogurt? Of course I'll buy some! [do make_furry()]Mmmmm so yummy >.< 
+		
 		=> handle_end
 	else
 		do get_parent().lose_sell()
