@@ -26,7 +26,9 @@ func _on_dialogue_ended(resource: DialogueResource):
 	camera.offset = Vector2.ZERO
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept"):
+		if interrogation_running:
+			return
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
 			interrogation_started.emit()
