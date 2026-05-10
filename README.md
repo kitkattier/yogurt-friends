@@ -9,3 +9,4 @@ We used the follonwing assets:
 - Yogurt: https://commons.wikimedia.org/wiki/File:Natural_Yoghurt.jpg
 - Furries: https://www.deviantart.com/deliriouslycorgi/art/Free-Furry-Lineart-829567422
 - Music: https://www.youtube.com/watch?v=a3A90Oc1Rrc
+- Sunset: https://unsplash.com/photos/a-beach-with-palm-trees-and-a-sunset-2YjUoTdqD1s

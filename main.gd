@@ -96,7 +96,8 @@ func get_face_images() -> Array:
 	["Nic", "res://person/nichead.png"]]
 
 func _on_time_up() -> void:
-	$Ending.start_ending_scene()
+	GameState.good_ending = money >= 3
+	get_tree().change_scene_to_file("res://ending/ending.tscn")
 	
 func get_possible_people() -> Array:
 	return [
