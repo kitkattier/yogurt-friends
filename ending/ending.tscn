@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://caibmuc1dag0f" path="res://ending/ending.gd" id="1_lvm68"]
 [ext_resource type="Resource" uid="uid://gfgb2fu07x7x" path="res://Dialogue/ending.dialogue" id="2_r7gcc"]
 [ext_resource type="Texture2D" uid="uid://chbwjok84747k" path="res://ending/sunset.png" id="3_o7yp5"]
+[ext_resource type="AudioStream" uid="uid://cvsi67eg246dp" path="res://ending/ending.mp3" id="4_05p0a"]
 
 [node name="Ending" type="Control" unique_id=155167711]
 layout_mode = 3
@@ -17,3 +18,7 @@ offset_top = -132.0
 offset_right = 2020.0
 offset_bottom = 1249.0
 texture = ExtResource("3_o7yp5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1650458399]
+stream = ExtResource("4_05p0a")
+autoplay = true
