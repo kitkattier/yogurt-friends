@@ -1,9 +1,13 @@
 ~ start
 YOU: Yo gurt!
 Gurt: [img]res://gurt.png[/img] Yo!
-[img]res://gurt.png[/img] Gurt:  Can you help me, I need to get this yogurt out to my customers but i can't be seen on the streets.
+Gurt:  [img]res://gurt.png[/img] Can you help me, I need to get this yogurt out to my customers but i can't be seen on the streets.
 - Yes
 	Gurt: [img]res://gurt.png[/img] Peak. This is why you a real one
+	Gurt: [img]res://gurt.png[/img] Would you like to play wiht your photo on the character?
+	- Yes
+		do take_photo()
+	- No
 	Gurt: [img]res://gurt.png[/img] Have you played this game before?
 	- Yes
 		Gurt: [img]res://gurt.png[/img] Well you don't need me then. Come by the van to grab more yo[wait=0.5]gurt.

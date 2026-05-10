@@ -43,6 +43,7 @@ func _ready() -> void:
 		var y = world_size.y / 2 + 100 * (i + 1)
 		create_person(this_face_image[0], this_face_image[1], accessories_equipped, info, is_furry, greeting)
 	
+	DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/intro.dialogue"), "start", [self, $Player])
 	take_photo()
 	
 	
