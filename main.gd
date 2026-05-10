@@ -253,8 +253,62 @@ func set_yogurt(new_yogurt: int) -> void:
 		get_tree().change_scene_to_file("res://ending/ending.tscn")
 		
 func take_photo() -> void:
-	OS.execute("python3", [ProjectSettings.globalize_path("res://capture_face.py")])
-	await get_tree().create_timer(5.0).timeout  # wait for user to take photo
-	var img = Image.load_from_file(ProjectSettings.globalize_path("res://character.png"))
+	if OS.has_feature("web"):
+		_take_photo_web()
+	else:
+		OS.execute("python3", [ProjectSettings.globalize_path("res://capture_face.py")])
+		await get_tree().create_timer(5.0).timeout
+		var img = Image.load_from_file(ProjectSettings.globalize_path("res://character.png"))
+		if img:
+			$Player/Face.texture = ImageTexture.create_from_image(img)
+
+func _take_photo_web() -> void:
+	JavaScriptBridge.eval("""
+	(function() {
+		var video = document.createElement('video');
+		video.setAttribute('autoplay', '');
+		video.setAttribute('playsinline', '');
+		video.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9999;max-width:80vw;max-height:60vh;border:3px solid #0f0;border-radius:12px;';
+		document.body.appendChild(video);
+
+		var btn = document.createElement('button');
+		btn.textContent = 'Take Photo';
+		btn.style.cssText = 'position:fixed;top:calc(50% + 35vh);left:50%;transform:translateX(-50%);z-index:10000;padding:12px 32px;font-size:20px;cursor:pointer;border-radius:8px;border:none;background:#0f0;color:#000;font-weight:bold;';
+		document.body.appendChild(btn);
+
+		navigator.mediaDevices.getUserMedia({video: {facingMode: 'user'}}).then(function(stream) {
+			video.srcObject = stream;
+		});
+
+		btn.onclick = function() {
+			var canvas = document.createElement('canvas');
+			canvas.width = 128;
+			canvas.height = 128;
+			var ctx = canvas.getContext('2d');
+			var s = Math.min(video.videoWidth, video.videoHeight);
+			var sx = (video.videoWidth - s) / 2;
+			var sy = (video.videoHeight - s) / 2;
+			ctx.beginPath();
+			ctx.arc(64, 64, 64, 0, Math.PI * 2);
+			ctx.clip();
+			ctx.drawImage(video, sx, sy, s, s, 0, 0, 128, 128);
+
+			video.srcObject.getTracks().forEach(function(t) { t.stop(); });
+			video.remove();
+			btn.remove();
+
+			window._photoData = canvas.toDataURL('image/png').split(',')[1];
+		};
+	})();
+	""", true)
+
+	while JavaScriptBridge.eval("typeof window._photoData === 'undefined'", true):
+		await get_tree().create_timer(0.2).timeout
+
+	var base64: String = JavaScriptBridge.eval("window._photoData", true)
+	JavaScriptBridge.eval("delete window._photoData", true)
+	var raw = Marshalls.base64_to_raw(base64)
+	var img = Image.new()
+	img.load_png_from_buffer(raw)
 	if img:
 		$Player/Face.texture = ImageTexture.create_from_image(img)
