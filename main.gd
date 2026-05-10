@@ -78,7 +78,8 @@ func get_face_images() -> Array:
 	return [["Alegs", "res://person/alegshead.png"],
 	["Ryan", "res://person/ryanhead.png"],
 	["Pointer", "res://person/pointerhead.png"],
-	["Gareth", "res://person/randohead.png"]]
+	["Gareth", "res://person/randohead.png"],
+	["Oscar", "res://person/oscarhead.png"]]
 
 func _on_time_up() -> void:
 	print("Time's up!")
