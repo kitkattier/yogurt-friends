@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 var half_size: Vector2
-var interrogation_running: bool = false
+var interrogation_running: bool = true
 var initial_camera_zoom: Vector2
 
 

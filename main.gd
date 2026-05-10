@@ -72,6 +72,7 @@ func sell() -> void:
 	set_yogurt(0)
 	money += 1
 	hud.update_money(money)
+	
 
 func lose_sell() -> void:
 	set_yogurt(0)
@@ -243,6 +244,8 @@ func setup_navigation() -> void:
 func set_yogurt(new_yogurt: int) -> void:
 	_yogurt = new_yogurt
 	hud.update_yogurt(new_yogurt)
+	if money >= 5:
+		$Ending.start_ending_scene()
 
 func take_photo() -> void:
 	OS.execute("python3", [ProjectSettings.globalize_path("res://capture_face.py")])

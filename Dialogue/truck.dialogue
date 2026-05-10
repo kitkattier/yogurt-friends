@@ -1,6 +1,6 @@
 ~ start
 if get_parent()._yogurt == 1
-	[img]res://gurt.png[/img] Gurt: I know you miss me, but you've already got the yogurt. Go sell it.
+	Gurt: [img]res://gurt.png[/img] I know you miss me, but you've already got the yogurt. Go sell it.
 else
 	Gurt: [img]res://gurt.png[/img] Go sell this yogurt uwu
 	do replenish_yogurt()
