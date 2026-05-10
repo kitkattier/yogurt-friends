@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://ckmtiaknyyauv"]
+
+[sub_resource type="GDScript" id="GDScript_g6wry"]
+script/source = "extends CanvasLayer
+
+signal photo_taken(texture)
+
+var camera_image: Image
+
+func _ready() -> void:
+	OS.execute(\"ffmpeg\", [\"-y\", \"-f\", \"v4l2\", \"-i\", \"/dev/video0\", 
+		\"-vf\", \"scale=640:480\", \"-frames:v\", \"1\", \"/tmp/preview.jpg\"])
+	await get_tree().create_timer(0.5).timeout
+	refresh_preview()
+
+func refresh_preview() -> void:
+	var img = Image.load_from_file(\"/tmp/preview.jpg\")
+	if img:
+		$TextureRect.texture = ImageTexture.create_from_image(img)
+
+func _on_take_photo_pressed() -> void:
+	OS.execute(\"ffmpeg\", [\"-y\", \"-f\", \"v4l2\", \"-i\", \"/dev/video0\",
+		\"-frames:v\", \"1\", \"/tmp/player_face.jpg\"])
+	await get_tree().create_timer(0.5).timeout
+	
+	var img = Image.load_from_file(\"/tmp/player_face.jpg\")
+	if img == null:
+		return
+	
+	# Crop to square from center
+	var size = mini(img.get_width(), img.get_height())
+	var x = (img.get_width() - size) / 2
+	var y = (img.get_height() - size) / 2
+	img = img.get_region(Rect2i(x, y, size, size))
+	img.resize(128, 128)
+	
+	# Apply circular mask
+	for px in range(128):
+		for py in range(128):
+			var dx = px - 64
+			var dy = py - 64
+			if dx*dx + dy*dy > 64*64:
+				img.set_pixel(px, py, Color(0,0,0,0))
+	
+	var texture = ImageTexture.create_from_image(img)
+	photo_taken.emit(texture)
+	queue_free()
+"
+
+[node name="PhotoCapture" type="CanvasLayer" unique_id=2094272966]
+script = SubResource("GDScript_g6wry")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=489214643]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1761805271]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=141530351]
+
+[node name="Button" type="Button" parent="." unique_id=2043659683]
+offset_right = 8.0
+offset_bottom = 8.0

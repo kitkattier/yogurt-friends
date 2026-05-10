@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgcd11e3x613e"]
 
 [ext_resource type="Script" uid="uid://cqqaafdv36kc7" path="res://title_screen.gd" id="1_v6p8y"]
-[ext_resource type="Texture2D" uid="uid://e8n41a5cqi5f" path="res://yogurt_image.jpg" id="2_ak2if"]
+[ext_resource type="Texture2D" uid="uid://dewoxcbt2if8w" path="res://start_screen.png" id="2_ak2if"]
 
 [node name="TitleScreen" type="Control" unique_id=632516008]
 layout_mode = 3
@@ -19,20 +19,22 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -50.0
-offset_top = -385.0
-offset_right = 190.0
-offset_bottom = 283.0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 5.0
+offset_bottom = 721.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ak2if")
+expand_mode = 5
+stretch_mode = 4
 
 [node name="StartButton" type="Button" parent="." unique_id=1397980894]
 layout_mode = 0
 offset_left = 35.0
 offset_top = 802.0
 offset_right = 546.0
-offset_bottom = 1085.0
+offset_bottom = 930.0
 text = "start"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
