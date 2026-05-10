@@ -32,7 +32,7 @@ func _ready() -> void:
 	var face_images = get_face_images()
 	var possible_people = get_possible_people()
 	for i in range(n):
-		var this_face_image = face_images[i % 6]
+		var this_face_image = face_images[i % 8]
 		var this_person_details = possible_people[i]
 		# accessories_equipped corresponds to ears, collar, tail, respectively
 		var accessories_equipped = this_person_details[0]
@@ -91,7 +91,9 @@ func get_face_images() -> Array:
 	["Pointer", "res://person/pointerhead.png"],
 	["Gareth", "res://person/randohead.png"],
 	["Oscar", "res://person/oscarhead.png"],
-	["Kai", "res://person/kaihead.png"]]
+	["Kai", "res://person/kaihead.png"],
+	["Kitkat", "res://person/kitkathead.png"],
+	["Nic", "res://person/nichead.png"]]
 
 func _on_time_up() -> void:
 	$Ending.start_ending_scene()
