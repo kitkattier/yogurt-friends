@@ -3,6 +3,28 @@
 [ext_resource type="Script" uid="uid://c0qg3cb4jg141" path="res://hud/hud.gd" id="1_ki55g"]
 [ext_resource type="Texture2D" uid="uid://cdbromc0nyqe0" path="res://hud/yogurt.png" id="2_rvwe7"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yr0wq"]
+bg_color = Color(1, 0.4, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 3
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvwe7"]
+bg_color = Color(1, 0.4, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 3
+shadow_offset = Vector2(2, 2)
+
 [node name="Hud" type="CanvasLayer" unique_id=1965811172]
 script = ExtResource("1_ki55g")
 
@@ -12,25 +34,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1905638831]
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_constants/separation = 20
 
 [node name="TimeLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=337744435]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_yr0wq")
 
-[node name="MoneyLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1456861658]
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer" unique_id=143846543]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=326194824]
 layout_mode = 2
 texture = ExtResource("2_rvwe7")
 expand_mode = 3
+
+[node name="MoneyLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1456861658]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_rvwe7")
