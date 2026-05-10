@@ -42,6 +42,36 @@ func make_furry() -> void:
 		part.hide()
 	$FurryForm.show()
 	
+func furry_transformation() -> void:
+	var duration := 5.0
+	var base_scale := scale  # remember the original
+	var tween := create_tween().set_parallel(true)
+	tween.tween_method(
+		func(t: float): _oscillate_scale_x(t, base_scale.x),
+		0.0, duration, duration
+	)
+	tween.tween_method(
+		func(t: float): _oscillate_scale_y(t, base_scale.y),
+		0.0, duration, duration
+	)
+	# Snap back to original scale, then transform
+	tween.chain().tween_callback(func(): scale = base_scale)
+	tween.tween_callback(make_furry)
+
+func _oscillate_scale_x(t: float, base: float) -> void:
+	var base_freq := 1
+	var freq_accel := 4.0
+	var amplitude := 3
+	var phase := base_freq * t + freq_accel * t * t * 0.5
+	scale.x = base * (1.0 + amplitude * sin(phase * TAU) * t / 4)
+
+func _oscillate_scale_y(t: float, base: float) -> void:
+	var base_freq := 1.5
+	var freq_accel := 4.5
+	var amplitude := 0.5
+	var phase := base_freq * t + freq_accel * t * t * 0.5
+	scale.y = base * (1.0 + amplitude * sin(phase * TAU) * t / 4)
+	
 func start_conversation():
 	movement_disabled = true
 	var target := $"/root/Main/Player"
