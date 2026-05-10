@@ -27,8 +27,14 @@ func get_random_hsv() -> Color:
 	# Value: 1.0 (Bright)
 	return Color.from_hsv(randf(), 1.0, 1.0)
 	
+func make_grey() -> void:
+	var body_parts = [$Tail, $Body, $Ears, $Head, $Clothes, $Collar, $Shoes, $Hoverboard]
+	for part in body_parts:
+		part.modulate = "#676767"
+	
 func make_angry() -> void:
 	$Head.modulate = "#ff0000"
+	$Body.modulate = "#ff0000"
 
 func make_furry() -> void:
 	var body_parts = [$Tail, $Body, $Ears, $Head, $Clothes, $Collar, $Shoes]

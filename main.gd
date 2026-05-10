@@ -83,11 +83,6 @@ func get_face_images() -> Array:
 
 func _on_time_up() -> void:
 	print("Time's up!")
-
-func get_persons_list() -> Array:
-	# array will contain tuples
-	# each tuple contains attributes
-	return []
 	
 func get_possible_people() -> Array:
 	return [
