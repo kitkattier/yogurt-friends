@@ -1,4 +1,10 @@
 ~ start
+if good_ending
+	=> good_ending
+else
+	=> bad_ending
+
+~ good_ending
 Gurt: [img]res://gurt.png[/img] Yo!
 Gurt: [img]res://gurt.png[/img] So, we sold all the yogurt...
 YOU: Yes... we did it
@@ -20,15 +26,25 @@ Gurt: [img]res://gurt.png[/img] Truth is, I cannot imagine parting ways and bein
 	Gurt: [img]res://gurt.png[/img] No. I think you know what to do.
 	YOU: Yes. I think I'm ready.
 	YOU: *eats the yogurt*
-	# TODO: ADD THE WOLF TRANFORM IMAGE HERE
+	YOU: [img]res://ending/wolf.jpg[/img] AWOOOOOOO
 	Gurt: [img]res://gurt.png[/img] *holds your hand* We're going to be fine.
-	Gurt: [img]res://gurt.png[/img] Your skin, it- it's so soft.
+	Gurt: [img]res://gurt.png[/img] Your fur, it- it's so soft.
 	Gurt: [img]res://gurt.png[/img] *pulls you closer*
 	Gurt: [img]res://gurt.png[/img] Are you sure about this?
-	- YOU: I've never been more sure of anything.
+	- I've never been more sure of anything.
 			# ENDING LOGIC HERE
-	- YOU: I'm having second thoughts.
+	- I'm having second thoughts.
 		Gurt: [img]res://gurt.png[/img] I'm sorry for all this. I should leave.
 	- What did you have for lunch?
 		- Gurt: [img]res://gurt.png[/img] yogurt.
 	- I'm sorry but we should leave.
+	=> END
+	
+~ bad_ending
+Gurt: [img]res://gurt.png[/img] It's the end of the day and we still have loads of yogurt...
+Gurt: [img]res://gurt.png[/img] ...
+Gurt: [img]res://gurt.png[/img] I don't think this is gonna work out
+- No we can still-
+- I don't even like yogurt anyways
+Gurt: [img]res://gurt.png[/img] I don't want to ever see you again
+=> END

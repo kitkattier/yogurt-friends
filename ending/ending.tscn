@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://byabindln70hn"]
+
+[ext_resource type="Script" uid="uid://caibmuc1dag0f" path="res://ending/ending.gd" id="1_lvm68"]
+[ext_resource type="Resource" uid="uid://gfgb2fu07x7x" path="res://Dialogue/ending.dialogue" id="2_r7gcc"]
+
+[node name="Ending" type="Node" unique_id=1592930918]
+script = ExtResource("1_lvm68")
+dialogue_resource = ExtResource("2_r7gcc")

@@ -67,15 +67,15 @@ func _process(_delta: float) -> void:
 
 func sell() -> void:
 	set_yogurt(0)
-	money += 10
+	money += 1
 	hud.update_money(money)
 
 func lose_sell() -> void:
 	set_yogurt(0)
-	if money <= 10:
+	if money <= 1:
 		money = 0
 	else:
-		money -= 10
+		money -= 1
 	hud.update_money(money)
 
 func get_yogurt() -> int:
@@ -90,7 +90,7 @@ func get_face_images() -> Array:
 	["Kai", "res://person/kaihead.png"]]
 
 func _on_time_up() -> void:
-	print("Time's up!")
+	$Ending.start_ending_scene()
 	
 func get_possible_people() -> Array:
 	return [

@@ -15,7 +15,7 @@ func update_time(seconds_left: float) -> void:
 	time_label.text = "%d:%02d" % [minutes, seconds]
 
 func update_money(amount: int) -> void:
-	money_label.text = "$%d" % amount
+	money_label.text = "$%d" % (amount * 5_000_000)
 
 func update_yogurt(amount: int) -> void:
 	var silhouette: bool = amount == 0
