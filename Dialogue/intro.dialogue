@@ -8,4 +8,6 @@ Gurt:  [img]res://gurt.png[/img] Can you help me, I need to get this yogurt out 
 	- Yes
 		do take_photo()
 	- No
+- No
+	[img]res://gurt.png[/img] Gurt: Yes you can, don't lie. => start
 => END
